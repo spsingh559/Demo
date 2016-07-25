@@ -1,0 +1,74 @@
+
+body{
+ background-color: #f2ffe6;
+}
+.container: #e6faff;
+{
+	background-color: 
+}
+nav li{
+	display: inline;
+	margin: 10px;
+	font-size: 16px;
+	}
+nav li a{
+		text-decoration: none;
+		color: orange;
+	}
+header p{
+		font-size: 16px;
+		text-decoration: none;
+		margin-top: 10px;	
+		
+	}
+	header{
+		background-color: green;
+		position: fixed;
+	}
+	header h1{
+		margin-top: 10px;
+	}
+	.imagemoving
+	{
+		margin-top:100px;
+	}
+		.sectionHeading {
+			font-size: 24px;
+			margin-top: 30px;
+			font-color:blue;
+			margin-right: 200px;
+			margin-left: 200px;
+			width: 960px;
+			margin-top: 10px;
+
+
+	}
+	.mainsection{
+		margin-top: 30px;
+		
+	}
+	.column
+	{
+		height: 600px;
+	}
+	.row1, .row2,.row3{
+		height: 200px;
+	}
+	footer{
+		
+
+	}
+	h1{
+		color: orange;
+	}
+	.wrapper nav
+	{
+		margin-top: 10px;
+	}
+	footer div{
+		background-color: green;
+	}
+	.aluminilist{
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
