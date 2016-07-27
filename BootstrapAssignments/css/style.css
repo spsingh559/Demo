@@ -1,0 +1,10 @@
+ .demo-content{
+        padding: 10px;
+        font-size: 18px;
+        min-height: 100px;
+        background: #dbdfe5;
+        margin-bottom: 10px;
+    }
+    .demo-content.bg-alt{
+        background: #abb1b8;
+    }
