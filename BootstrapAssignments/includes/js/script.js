@@ -9,7 +9,6 @@ Notes:	 Hand coded for Udemy.com
 
 */
 $(function () {
-
 	/*
 	$('#alertMe').click(function(e)
 	{
@@ -17,6 +16,8 @@ $(function () {
 		$('#successAlert').slideDown();
 	});
 	*/
+
+
 	$('#formBtnSubmit').click(function(m)
 	{
 		m.preventDefault();
