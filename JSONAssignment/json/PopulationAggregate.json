@@ -1,0 +1,26 @@
+[
+  {
+    "continents": "Europe",
+    "aggregateGDPof2013": 268.2
+  },
+  {
+    "continents": "Asia",
+    "aggregateGDPof2013": 3296.1999999999994
+  },
+  {
+    "continents": "NorthAmerica",
+    "aggregateGDPof2013": 470.25
+  },
+  {
+    "continents": "SouthAmerica",
+    "aggregateGDPof2013": 243.23000000000002
+  },
+  {
+    "continents": "Australia",
+    "aggregateGDPof2013": 23.3
+  },
+  {
+    "continents": "Africa",
+    "aggregateGDPof2013": 53.16
+  }
+]
