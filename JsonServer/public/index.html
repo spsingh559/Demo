@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chart Representaion</title>
+  <meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Bootstrap Css -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-glyphicons.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <!-- header start -->
+  <div class="container" id="main">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid" id="mainContainer">
+        <div class="navbar-header">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button" id="menu1" area-expand="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Logo -->
+          <a class="navbar-brand" href="/"><img src="image/logo.jpg" alt="Your Logo"> 
+          </a>
+          <form class="navbar-form pull-left searchClass">
+            <input type="text" class="form-control" placeholder="Search Your Friend..." id="searchInput">
+            <button type="button" class="btn btn-default" id="btnSearch"><span class="glyphicon glyphicon-search"></span></button>
+          </form><!-- end navbar-form -->
+          <!-- <p class="navbar-brand">Wave NGO</p> -->
+        </div>
+        <!-- Collapse Feature -->
+        <div class="navbar-collapse collapse navbar-responsive-collapse" id="menu">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Account <strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a>
+                </li>
+                <li>
+                  <a href="#"><span class="glyphicon glyphicon-refresh"></span> Update Profile</a>
+                </li>
+                <li>
+                  <a href="#"><span class="glyphicon glyphicon-briefcase"></span> Friend List</a>
+                </li>
+                <li>
+                  <a href="#"><span class="glyphicon glyphicon-off"></span> Sign out</a>
+                </li>
+              </ul>
+            </li>     
+          </ul>       
+        </div><!-- end nav-collapse -->   
+      </div><!-- end container -->
+    </div><!-- end navbar -->
+
+
+    <!-- Template -->
+
+    <!-- Template for Chat Content -->
+    <template id ="chatContent">
+      <div data-id={{index}} class="ChatDiv">
+        <h4><a href="#friendDetailModal" role="button" data-id ={{index}} class="btn btn-large btn-link pull-right frienddetailBtn" data-toggle="modal">{{name}}</a> 
+        </h4>
+        <a  style="display:block" href="#myModal" data-toggle="modal">
+
+         <img src={{picture}} class="img-circle" alt="Placeholder image">  
+       </a>
+     </div>
+   </template>
+
+   <!-- Template for showing friend Detail -->
+<template id=friendDetailTemplate>
+<div class="col-sm-4 feature">
+      <div class="panel panel-default">
+        <div class="panel-heading friendDetailPanel">
+        <h3 class="panel-title">{{name}} Details :</h3>
+        </div><!-- end panel-heading -->
+        <div class="panel-body">
+          <div> 
+            <ul>
+              <li>Contact No :{{phone}}</li>
+              <li> Email ID :{{email}} </li>
+              <li> Address : {{address}} </li>
+            </ul>
+          </div>  
+        </div> 
+      </div>
+    </div>  
+</template>
+
+<!-- Template for Contacts -->
+    <template id ="contactTemplate">
+      <div data-id={{index}} class="ContactDivTemplate">
+        
+        <a  style="display:block" href="#contactModal" data-toggle="modal">
+        <h4 >{{name}} <span class="glyphicon glyphicon-refresh onlineClass">{{phone}} 
+        </h4>
+         <img src={{picture}} class="img-circle" alt="Placeholder image">  
+       </a>
+     </div>
+    </template>
+
+    <!-- Template for contact tab title -->
+    <template id ="modalChatNameTemplate">
+      <div><h4><strong><b>{{name}}</b> </strong> is online <span class="glyphicon glyphicon-refresh onlineClass"></span></h4>
+    </template> 
+
+    <!-- Template for chat tab message title -->
+    <template id ="modalChatContactTitleTemplate">
+      <div><h4> calling to  <strong><b>{{name}}</b> </strong></span></h4>
+    </template> 
+
+    <!-- <template id ="ContentTemplate">
+      <div><h4>{{Contact No}}</h4><img src={{Image}} class="img-circle" alt="Placeholder image"> </div> 
+    </template>  -->
+
+    <template id ="eventTemplate">
+      <div><h4>{{Name}}</h4> </div>
+      <div>{{eventName}} :
+        <ul><li>
+          {{Activities}}
+        </li>
+      </div> 
+    </template> 
+    <template id="eventTemplate">
+     <div class="col-sm-4 feature">
+      <div class="panel panel-default">
+        <div class="panel-heading eventPanel">
+        <h3 class="panel-title">{{EventTime}}</h3>
+        </div><!-- end panel-heading -->
+        <div class="panel-body">
+          <div> Event :
+            <ul>
+              <li>{{EventName}}</li>
+              <li>{{FriendList}} </li>
+              <li> {{Special Message}} </li>
+            </ul>
+          </div>  
+        </div> <!-- panel body tag -->
+      </div>
+    </div><!-- end panel -->
+  </template>
+
+  <!-- Template for showing message  -->
+  <template id="messageTemplate">
+     <div class="col-sm-4 feature">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div>
+            <ul>
+              <li>{{messages}}</li>
+            </ul>
+          </div>  
+        </div> <!-- panel body tag -->
+      </div>
+    </div><!-- end panel -->
+  </template>
+    <!-- Template End-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>              
+           <h4 class="modal-title chatTitle">Chat with your Friend</h4>
+         </div><!-- end modal-header -->
+         <div class="modal-body chatModalBody">  
+           <p><small class="text-muted">You can make someone happy by sending sweet messages.</small></p>                   
+         </div><!-- end modal-body -->                
+         <div class="modal-footer">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-lg-2 control-label" for="inputMessage">Message</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" id="inputMessage" placeholder="Message" rows="2"></textarea>
+              </div>
+            </div>
+          </form>
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button> 
+          <button class="btn btn-primary" type="button" id="formBtnSubmit">Message</button>
+        </div><!-- end modal-footer -->
+      </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end myModal -->
+
+  <!-- MOdal for Event -->
+  <div class="modal fade" id="eventModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         <button class="close" data-dismiss="modal">&times;</button>              
+         <h4 class="modal-title">Add all the events</h4>
+       </div><!-- end modal-header -->
+       <div class="modal-body">  
+         <p><small class="text-muted">Adding Events help your friends to manage time.</small></p>   
+         <form class="form-horizontal">
+           <div class="form-group">
+            <label class="col-lg-2 control-label" for="inputName">Event Name</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputName" placeholder="Event Name" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label" for="inputName">Date</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputName" placeholder="Date" type="text" data-provide="datepicker">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label" for="inputName">Add Friend</label>
+            <div class="col-lg-10">
+              <input class="form-control" id="inputName" placeholder="Fried List" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label" for="inputMessage">Special Note</label>
+            <div class="col-lg-10">
+              <textarea class="form-control" id="inputSpecialMessage" placeholder="Message" rows="2"></textarea>
+            </div>
+          </div>
+        </form>                
+      </div><!-- end modal-body -->                
+      <div class="modal-footer">
+       <button class="btn btn-default" data-dismiss="modal" type="button">Close</button> 
+       <button class="btn btn-primary" type="button" id="formBtnSubmit">Message</button>
+     </div><!-- end modal-footer -->
+   </div><!-- end modal-content -->
+ </div><!-- end modal-dialog -->
+</div><!-- end myModal -->
+
+         <!-- End Modal for Event-->
+         <!-- Modal for Friend Detail -->
+         <div class="modal fade" id="friendDetailModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>              
+           <h4 class="modal-title">Friends are best for life</h4>
+         </div><!-- end modal-header -->
+         <div class="modal-body friendDetailModalBody">  
+                            
+         </div><!-- end modal-body -->                
+         <div class="modal-footer">
+          <!-- <button class="btn btn-primary" data-id={{index}} type="button" id="friendDetailtoMessage">Chat</button> -->
+          <a href="#myModal" role="button" data-id ={{index}} class="btn btn-large btn-primary" data-toggle="modal" data-dismiss="modal"> Chat</a>
+        </div><!-- end modal-footer -->
+      </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end myModal -->
+
+  <!-- contact Modal -->
+  <!-- Modal for Friend Detail -->
+         <div class="modal fade" id="contactModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button class="close" data-dismiss="modal">&times;</button>              
+           <h4 class="modal-title contactModalTitle"></h4>
+         </div><!-- end modal-header -->
+         <div class="modal-body friendDetailModalBody">    
+          <marquee> 
+           <svg  >
+            <!-- <circle cx="100" cy="70" r="50" fill="green" stroke="brown" stroke-width="10">  -->
+            <circle cx="100" cy="70" r="50" stroke="orange" stroke-width="10" fill="pink"/>
+      <rect x=70 y=50 height=20 width=20 fill=red />
+        <rect x=110 y=50 height=20 width=20 fill=red />
+      <path d="M75 80 q20 20 40 0" fill ="orange" stroke="red" stroke-width="2" />
+        
+          </svg>
+           </marquee>             
+         </div><!-- end modal-body -->                
+         
+      </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end myModal -->
+
+         <!-- Modal End -->
+
+         <div class="row" id="moreInfo">
+          <div class="col-sm-6">        
+            <div class="tabbable chatTab">
+              <ul class="nav nav-tabs chatTabNav">
+                <li class="active"><a href="#tab1" data-toggle="tab">Chat</a></li>
+                <li class="ContactTabClass" ><a href="#tab2" data-toggle="tab">Contacts</a></li>
+                <li><a href="#tab3" data-toggle="tab">Upcoming Events</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab1">               
+                 
+               </div><!-- end tab-pane -->
+
+               <div class="tab-pane" id="tab2">
+                <!-- <div>
+                  <img src="image/storypic.jpg" class="img-circle pull-left" alt="Placeholder image"> <h4>Manish Bansal<small> Rocking in stack Route</small></h4>
+                </div>       -->                 
+              </div><!-- end tab-pane -->
+
+              <div class="tab-pane" id="tab3"> 
+                  <div class="tabbable eventTab">
+                   <ul class="nav nav-tabs eventTabNav">
+                     <li class="active"><a href="#tab4" data-toggle="tab">Friends Activity</a></li>
+                     <li ><a href="#tab5" data-toggle="tab">My Activity</a></li>
+                   </ul>           
+                   <div class="tab-content">
+                    <div class="tab-pane active" id="tab4"> 
+                      <div class="col-sm-4 feature">
+                    <div class="panel panel-default ">
+                      <div class="panel-heading eventPanel">
+                      <h3 class="panel-title">Friday Events</h3>
+                      </div><!-- end panel-heading -->
+                      <div class="panel-body">
+                          <div>Friday Event :
+                    <ul>
+                      <li>Prakhar's Party at 1:30pm</li>
+                      <li>Shubham Bhai Cab Booking at 5:00 Pm </li>
+                      <li> 15th August, Cheer Out </li>
+                    </ul>
+                  </div>  
+                      </div> <!-- panel body tag -->
+                      </div>
+                    </div><!-- end panel -->
+                    </div>
+                    <div class="tab-pane" id="tab5"> 
+                     <h4> Manage your Activity here </h4>
+
+                     <a href="#eventModal" role="button" class="btn btn-large" data-toggle="modal">Add</a> 
+
+                   </div>   
+                 </div>
+               </div>  
+             </div><!-- end tab-pane -->
+           </div><!-- end tab-content -->
+         </div><!-- end tabbable --> 
+       </div><!-- end col-sm-6 --> 
+     </div><!-- end row -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="push"></div>
+
+   </div> <!--end container -->
+
+
+   <footer class="footerClass">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h6>Copyright &copy; 2013 {Shyam}</h6>
+        </div><!-- end col-sm-2 -->          
+
+        <div class="col-sm-3">
+          <h6>Navigation</h6>
+          <ul class="unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Links</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!-- end col-sm-2 -->
+
+        <div class="col-sm-3">
+          <h6>Follow Us</h6>
+          <ul class="unstyled">
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Google Plus</a></li>
+          </ul>
+        </div><!-- end col-sm-2 -->
+
+        <div class="col-sm-2">
+          <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Shyam</h6>
+        </div><!-- end col-sm-2 -->
+      </div><!-- end row -->
+    </div><!-- end container -->
+  </footer>
+
+
+
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"</script> -->
+
+   <script type="text/javascript" src="js/mustache.js"></script>
+   <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+   <!-- s -->
+   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   <!-- custom js -->
+   <script type="text/javascript" src="js/script.js"></script>
+ </body>
+ </html>
