@@ -7,6 +7,9 @@
    padding: 20px;
 
 }
+#tab4 h4{
+  color: blue;
+}
 .tabbable img.thumbnail {
    margin: 0 20px 10px 0;
 }
@@ -75,7 +78,7 @@ html, body {
    margin-left: 70px;
 }
    #menu{
-      background-color: green;
+      background-color: blue;
    }
    .thumb1 .thumb2 {
       padding: 0px 0px 10px;
