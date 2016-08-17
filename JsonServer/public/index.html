@@ -64,8 +64,9 @@
 
     <!-- Template for Chat Content -->
     <template id ="chatContent">
-      <div data-id={{index}} class="ChatDiv">
-        <h4><a href="#friendDetailModal" role="button" data-id ={{index}} class="btn btn-large btn-link pull-right frienddetailBtn" data-toggle="modal">{{name}}</a> 
+      <div data-id={{id}} class="ChatDiv">
+      <input type="hidden" id="myInput" name="friendName" value={{id}}>
+        <h4><a href="#friendDetailModal" role="button" data-id ={{id}} class="btn btn-large btn-link pull-right frienddetailBtn" data-toggle="modal">{{name}}</a> 
         </h4>
         <a  style="display:block" href="#myModal" data-toggle="modal">
 
@@ -75,11 +76,11 @@
    </template>
 
    <!-- Template for showing friend Detail -->
-<template id=friendDetailTemplate>
-<div class="col-sm-4 col-md-12 feature">
+   <template id=friendDetailTemplate>
+    <div class="col-sm-4 col-md-12 feature">
       <div class="panel panel-default">
         <div class="panel-heading friendDetailPanel">
-        <h3 class="panel-title">{{name}} Details :</h3>
+          <h3 class="panel-title">{{name}} Details :</h3>
         </div><!-- end panel-heading -->
         <div class="panel-body">
           <div> 
@@ -92,209 +93,210 @@
         </div> 
       </div>
     </div>  
-</template>
+  </template>
 
-<!-- Template for Contacts -->
-    <template id ="contactTemplate">
-      <div data-id={{index}} class="ContactDivTemplate">
-        
-        <a  style="display:block" href="#contactModal" data-toggle="modal">
+  <!-- Template for Contacts -->
+  <template id ="contactTemplate">
+    <div data-id={{id}} class="ContactDivTemplate">
+
+      <a  style="display:block" href="#contactModal" data-toggle="modal">
         <h4 >{{name}} <span class="glyphicon glyphicon-refresh onlineClass">{{phone}} 
         </h4>
-         <img src={{picture}} class="img-circle" alt="Placeholder image">  
-       </a>
-     </div>
-    </template>
+        <img src={{picture}} class="img-circle" alt="Placeholder image">  
+      </a>
+    </div>
+  </template>
 
-    <!-- Template for contact tab title -->
-    <template id ="modalChatNameTemplate">
-      <div><h4><strong><b>{{name}}</b> </strong> is online <span class="glyphicon glyphicon-refresh onlineClass"></span></h4>
+  <!-- Template for contact tab title -->
+  <template id ="modalChatNameTemplate">
+    <div><h4><strong><b><span class="nameSpan">{{name}}</span></b> </strong> is online <span class="glyphicon glyphicon-refresh onlineClass"></span>
+    <span class="idSpan">{{id}}</span>
+    </h4>
     </template> 
 
     <!-- Template for chat tab message title -->
     <template id ="modalChatContactTitleTemplate">
       <div><h4> calling to  <strong><b>{{name}}</b> </strong></span></h4>
-    </template> 
+      </template> 
 
-    <template id="eventTemplate">
-     <div class="col-sm-4 col-md-12 feature">
-      <div class="panel panel-default">
-        <div class="panel-heading eventPanel" ><button class="close eventCloseBtn" ><strong><b style="color:white; font-size:30px">&times;</b></strong></button>
-        <h3 class="panel-title">{{EventTime}}</h3>
-        </div><!-- end panel-heading -->
-        <div class="panel-body eventpanelClass">
-          <div> <b>Event : </b>
-            <ul>    
-              <li> <b>Event Name : </b>{{EventName}}</li>
-              <li><b> Event Address : </b>{{EventAddress}} </li>
-              <li> <b>Special Message :</b>{{EventMessage}} </li>
-            </ul>
-          </div>  
-        </div> 
-      </div>
-    </div>
-  </template>
-
-  <!-- Template for showing message  -->
-  <template id="messageTemplate">
-     <div class="col-sm-4 col-md-12 feature">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div>
-            <ul>
-              <li>{{messages}}</li>
-            </ul>
-          </div>  
-        </div> 
-      </div>
-    </div>
-  </template>
-    <!-- Template End-->
-
-    <!-- *********************Modal *********************************** -->
-    <!-- Modal for message -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           <button class="close" data-dismiss="modal">&times;</button>              
-           <h4 class="modal-title chatTitle">Chat with your Friend</h4>
-         </div><!-- end modal-header -->
-         <div class="modal-body chatModalBody">  
-           <p><small class="text-muted">You can make someone happy by sending sweet messages.</small></p>                   
-         </div><!-- end modal-body -->                
-         <div class="modal-footer">
-          <form class="form-horizontal">
-            <div class="form-group">
-              <label class="col-lg-2 control-label" for="inputMessage">Message</label>
-              <div class="col-lg-10">
-                <textarea class="form-control" id="inputMessage" placeholder="Message" rows="2"></textarea>
-              </div>
-            </div>
-          </form>
-          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button> 
-          <button class="btn btn-primary" type="button" id="formBtnSubmit">Message</button>
+      <template id="eventTemplate">
+       <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default">
+          <div class="panel-heading eventPanel" ><button class="close eventCloseBtn" ><strong><b style="color:white; font-size:30px">&times;</b></strong></button>
+            <h3 class="panel-title">{{EventTime}}</h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+            <div> <b>Event : </b>
+              <ul>    
+                <li> <b>Event Name : </b>{{EventName}}</li>
+                <li><b> Event Address : </b>{{EventAddress}} </li>
+                <li> <b>Special Message :</b>{{EventMessage}} </li>
+              </ul>
+            </div>  
+          </div> 
         </div>
       </div>
-    </div>
-  </div>
+    </template>
 
-  <!-- MOdal for Event -->
-  <div class="modal fade" id="eventModal">
+    <!-- Template for showing message  -->
+    <template id="messageTemplate">
+     <div class="col-sm-4 col-md-12 feature">
+      <div class="panel panel-default">
+        <div class="panel-body messagePanelBody">
+          <div>
+            <ul>
+            <li data-messageId={{messageId}}>{{messages}}</li>
+            </ul>
+          </div>  
+        </div> 
+      </div>
+    </div>
+  </template>
+
+  <!-- <template id="chatModalfooter">
+    
+  </template> -->
+  <!-- Template End-->
+
+  <!-- *********************Modal *********************************** -->
+  <!-- Modal for message -->
+  <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
          <button class="close" data-dismiss="modal">&times;</button>              
-         <h4 class="modal-title">Add all the events</h4>
-       </div>
-       <div class="modal-body">  
-         <p><small class="text-muted">Adding Events help your friends to manage time.</small></p>   
-         <form class="form-horizontal">
-           <div class="form-group">
-            <label class="col-lg-2 control-label" for="inputName">Event Name</label>
-            <div class="col-lg-10">
-              <input class="form-control" id="inputName" placeholder="Event Name" type="text">
-            </div>
-          </div>
+         <h4 class="modal-title chatTitle">Chat with your Friend</h4>
+       </div><!-- end modal-header -->
+       <div class="modal-body chatModalBody">  
+         <p><small class="text-muted">You can make someone happy by sending sweet messages.</small></p>                   
+       </div><!-- end modal-body -->                
+       <div class="modal-footer chatFooter">
+        <form class="form-horizontal">
           <div class="form-group">
-            <label class="col-lg-2 control-label" for="inputName">Date</label>
+            <label class="col-lg-2 control-label" for="inputMessage">Message</label>
             <div class="col-lg-10">
-              <input class="form-control" id="inputName" placeholder="Date" type="text" data-provide="datepicker">
+              <textarea class="form-control" id="inputMessage" placeholder="Message" rows="2"></textarea>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-2 control-label" for="inputMessage">Special Note</label>
-            <div class="col-lg-10">
-              <textarea class="form-control" id="inputSpecialMessage" placeholder="Message" rows="2"></textarea>
-            </div>
-          </div>
-        </form>                
-      </div>              
-      <div class="modal-footer">
-       <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-       <button class="btn btn-primary" type="button" id="formBtnSubmit">Message</button>
+        </form>
+        <button class="btn btn-default" data-dismiss="modal" type="button">Close</button> 
+        <button class="btn btn-primary"  type="button" id="formBtnSubmit">Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOdal for Event -->
+<div class="modal fade" id="eventModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button class="close" data-dismiss="modal">&times;</button>              
+       <h4 class="modal-title">Add all the events</h4>
      </div>
+     <div class="modal-body">  
+       <p><small class="text-muted">Adding Events help your friends to manage time.</small></p>   
+       <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputName">Event Name</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputName" placeholder="Event Name" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputName">Date</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputName" placeholder="Date" type="text" data-provide="datepicker">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputMessage">Special Note</label>
+          <div class="col-lg-10">
+            <textarea class="form-control" id="inputSpecialMessage" placeholder="Message" rows="2"></textarea>
+          </div>
+        </div>
+      </form>                
+    </div>              
+    <div class="modal-footer">
+     <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+     <button class="btn btn-primary" type="button" id="formBtnSubmit">Message</button>
    </div>
  </div>
 </div>
+</div>
 
-         <!-- Modal for Friend Detail -->
-         <div class="modal fade" id="friendDetailModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           <button class="close" data-dismiss="modal">&times;</button>              
-           <h4 class="modal-title">Friends are best for life</h4>
-         </div>
-         <div class="modal-body friendDetailModalBody">                             
-         </div>             
-         <div class="modal-footer">
-          <a href="#myModal" role="button" data-id ={{index}} class="btn btn-large btn-primary" data-toggle="modal" data-dismiss="modal"> Chat</a>
+<!-- Modal for Friend Detail -->
+<div class="modal fade" id="friendDetailModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button class="close" data-dismiss="modal">&times;</button>              
+       <h4 class="modal-title">Friends are best for life</h4>
+     </div>
+     <div class="modal-body friendDetailModalBody">                             
+     </div>             
+     <div class="modal-footer">
+      <a href="#myModal" role="button" data-id ={{id}} class="btn btn-large btn-primary" data-toggle="modal" data-dismiss="modal"> Chat</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- contact Modal -->
+<div class="modal fade" id="contactModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button class="close" data-dismiss="modal">&times;</button>              
+       <h4 class="modal-title contactModalTitle"></h4>
+     </div>
+     <div class="modal-body">    
+       <center>
+         <img src="image/imgCall.gif" />
+       </center>     
+     </div>           
+   </div>
+ </div>
+</div>
+<!-- Modal End -->
+
+<div class="row" id="moreInfo">
+  <div class="col-sm-6">        
+    <div class="tabbable chatTab">
+      <ul class="nav nav-tabs chatTabNav">
+        <li class="chatTabClass active"><a href="#tab1" data-toggle="tab">Chat</a></li>
+        <li class="ContactTabClass" ><a href="#tab2" data-toggle="tab">Contacts</a></li>
+        <li class="eventTabClass"><a href="#tab3" data-toggle="tab">Upcoming Events</a></li>
+      </ul>
+
+      <div class="tab-content ">
+        <div class="tab-pane active" id="tab1">             
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- contact Modal -->
-         <div class="modal fade" id="contactModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           <button class="close" data-dismiss="modal">&times;</button>              
-           <h4 class="modal-title contactModalTitle"></h4>
+        <div class="tab-pane" id="tab2">                 
+        </div>
+
+        <div class="tab-pane" id="tab3"> 
+          <div class="tabbable eventTab">
+           <ul class="nav nav-tabs eventTabNav">
+             <li class="active"><a href="#tab4" data-toggle="tab">Friends Activity</a></li>
+             <li ><a href="#tab5" data-toggle="tab">My Activity</a></li>
+           </ul>           
+           <div class="tab-content">
+            <div class="tab-pane active" id="tab4"> 
+            </div>
+            <div class="tab-pane" id="tab5"> 
+             <h4> Manage your Activity here </h4>
+
+             <a href="#eventModal" role="button" class="btn btn-large" data-toggle="modal">Add</a> 
+           </div>   
          </div>
-         <div class="modal-body">    
-          <marquee> 
-           <svg  >
-            <circle cx="100" cy="70" r="50" stroke="orange" stroke-width="10" fill="pink"/>
-            <rect x=70 y=50 height=20 width=20 fill=red />
-              <rect x=110 y=50 height=20 width=20 fill=red />
-            <path d="M75 80 q20 20 40 0" fill ="orange" stroke="red" stroke-width="2" />
-          </svg>
-           </marquee>             
-         </div>           
-      </div>
-    </div>
-  </div>
-         <!-- Modal End -->
-
-         <div class="row" id="moreInfo">
-          <div class="col-sm-6">        
-            <div class="tabbable chatTab">
-              <ul class="nav nav-tabs chatTabNav">
-                <li class="chatTabClass active"><a href="#tab1" data-toggle="tab">Chat</a></li>
-                <li class="ContactTabClass" ><a href="#tab2" data-toggle="tab">Contacts</a></li>
-                <li class="eventTabClass"><a href="#tab3" data-toggle="tab">Upcoming Events</a></li>
-              </ul>
-
-              <div class="tab-content ">
-                <div class="tab-pane active" id="tab1">             
-               </div>
-
-               <div class="tab-pane" id="tab2">                 
-              </div>
-
-              <div class="tab-pane" id="tab3"> 
-                  <div class="tabbable eventTab">
-                   <ul class="nav nav-tabs eventTabNav">
-                     <li class="active"><a href="#tab4" data-toggle="tab">Friends Activity</a></li>
-                     <li ><a href="#tab5" data-toggle="tab">My Activity</a></li>
-                   </ul>           
-                   <div class="tab-content">
-                    <div class="tab-pane active" id="tab4"> 
-                    </div>
-                    <div class="tab-pane" id="tab5"> 
-                     <h4> Manage your Activity here </h4>
-
-                     <a href="#eventModal" role="button" class="btn btn-large" data-toggle="modal">Add</a> 
-                     </div>   
-                 </div>
-               </div>  
-             </div><!-- end tab-pane -->
-           </div><!-- end tab-content -->
-         </div><!-- end tabbable --> 
-       </div><!-- end col-sm-6 --> 
-     </div><!-- end row -->
+       </div>  
+     </div><!-- end tab-pane -->
+   </div><!-- end tab-content -->
+ </div><!-- end tabbable --> 
+</div><!-- end col-sm-6 --> 
+</div><!-- end row -->
 
 
 
@@ -319,48 +321,48 @@
 
 
 
-     <div class="push"></div>
+<div class="push"></div>
 
-   </div> <!--end container -->
-
-
-   <footer class="footerClass">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h6>Copyright &copy; 2013 {Shyam}</h6>
-        </div><!-- end col-sm-2 -->          
-
-        <div class="col-sm-3">
-          <h6>Navigation</h6>
-          <ul class="unstyled">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Links</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div><!-- end col-sm-2 -->
-
-        <div class="col-sm-3">
-          <h6>Follow Us</h6>
-          <ul class="unstyled">
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Google Plus</a></li>
-          </ul>
-        </div><!-- end col-sm-2 -->
-
-        <div class="col-sm-2">
-          <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Shyam</h6>
-        </div><!-- end col-sm-2 -->
-      </div><!-- end row -->
-    </div><!-- end container -->
-  </footer>
+</div> <!--end container -->
 
 
+<footer class="footerClass">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h6>Copyright &copy; 2013 {Shyam}</h6>
+      </div><!-- end col-sm-2 -->          
+
+      <div class="col-sm-3">
+        <h6>Navigation</h6>
+        <ul class="unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Links</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div><!-- end col-sm-2 -->
+
+      <div class="col-sm-3">
+        <h6>Follow Us</h6>
+        <ul class="unstyled">
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Google Plus</a></li>
+        </ul>
+      </div><!-- end col-sm-2 -->
+
+      <div class="col-sm-2">
+        <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Shyam</h6>
+      </div><!-- end col-sm-2 -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</footer>
 
 
-  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+
+
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"</script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"</script> -->
 

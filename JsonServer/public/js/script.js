@@ -23,6 +23,11 @@ $(document).ready(function()  {
   var url,ajaxType;
   url='http://localhost:8080/friends';
   ajaxType='GET';
+  var friendIdMessage;
+  var formBtnSubmit=$('#formBtnSubmit');
+  var chatModalfooter=$('#chatModalfooter').html();
+  var chatFooter=$('.chatFooter');
+  var myModal=$('#myModal');
 
   //*************variable declaration end***************************************
   ajaxFun(url,ajaxType,chatTab,chatContentTemplate); 
@@ -54,7 +59,7 @@ chatTabClass.click(function(){
   chatTab.delegate(".frienddetailBtn", 'click', function()  { //Movie find function 
     friendDetailModalBody.empty();
         var friendId=$(this).attr('data-id');
-        url='http://localhost:8080/friends?index='+friendId;
+        url='http://localhost:8080/friends?id='+friendId;
         ajaxType='GET';
         ajaxFun(url,ajaxType,friendDetailModalBody,friendDetailTemplate);
      });  
@@ -70,6 +75,7 @@ chatTabClass.click(function(){
                  if(friends.Response!="False")   {
                      $.each(friends, function(j,data){
                      chatTitle.append(Mustache.render(modalChatNameTemplate,data));
+                    // chatFooter.append(Mustache.render(chatModalfooter,data));
                      $.each(data.message, function(j,data){
                     appendElement.append(Mustache.render(contentTemplate,data));
                          });
@@ -85,7 +91,7 @@ chatTabClass.click(function(){
     chatModalBody.empty();
     chatTitle.empty();
         var friendId=$(this).attr('data-id');
-        url='http://localhost:8080/friends?index='+friendId;
+        url='http://localhost:8080/friends?id='+friendId;
         ajaxType='GET';
         showMessage(url,ajaxType,chatModalBody,messageTemplate);        
      }); 
@@ -93,8 +99,8 @@ chatTabClass.click(function(){
 //showing Name on click of contact in contact tab 
   contactTab.delegate('.ContactDivTemplate','click',function(){
       contactModalTitle.empty();
-      var friendId=$(this).attr('data-id');
-      url='http://localhost:8080/friends?index='+friendId;
+       friendIdMessage=$(this).attr('data-id');
+      url='http://localhost:8080/friends?id='+friendIdMessage;
         ajaxType='GET',
         ajaxFun(url,ajaxType,contactModalTitle,modalChatContactTitleTemplate);
 
@@ -105,7 +111,7 @@ chatTabClass.click(function(){
     chatModalBody.empty();
     chatTitle.empty();    
         var friendId=$(this).attr('data-id');
-        url='http://localhost:8080/friends?index='+friendId;
+        url='http://localhost:8080/friends?id='+friendId;
         ajaxType='GET';
         showMessage(url,ajaxType,chatModalBody,messageTemplate);        
      }); 
@@ -119,7 +125,6 @@ chatTabClass.click(function(){
              success:function(friends){
                  if(friends.Response!="False")   {
                      $.each(friends, function(j,data){
-                      console.log(data.name);
                       appendElement.append("<center><h4><strong><b>" +data.name+"</b></strong></h4></center>");
                      $.each(data.event, function(j,data){
                     appendElement.append(Mustache.render(contentTemplate,data));
@@ -172,9 +177,43 @@ chatTabClass.click(function(){
 
 
 //************Get operation over ******************************
+//object
 
 
+ myModal.delegate(formBtnSubmit,'click',function(){
 
+// var idSpan=$('.idSpan').text();
+// console.log(idSpan);
+// var messageObj={
+//   id:idSpan,
+//   message: [
+//         {
+//           messageId: 104,
+//           messages: "hey."
+//         }
+//         ]
+// }
+
+// $.ajax({
+//   type:"PATCH",
+// url:"http://localhost:8080/friends/"+idSpan,
+// data:messageObj,
+// success:function(friends){
+//                  if(friends.Response!="False")   {
+//                      $.each(friends, function(j,data){
+//                   //   chatTitle.append(Mustache.render(modalChatNameTemplate,data));
+//                     // chatFooter.append(Mustache.render(chatModalfooter,data));
+//                      $.each(data.message, function(j,data){
+//                     chatModalBody.append(Mustache.render(messageTemplate,data));
+//                          });
+//                       });
+//                     }       
+//                   else { alert('list incorrect')} // else end
+//                }
+
+
+// });
+ });
 
 
  }); //ready function ends
