@@ -5,6 +5,7 @@
   <meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- Bootstrap Css -->
   <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+ <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap-glyphicons.css">
   <!-- Custom css -->
@@ -46,8 +47,8 @@
                 <li>
                   <a href="#"><span class="glyphicon glyphicon-refresh"></span> Update Profile</a>
                 </li>
-                <li>
-                  <a href="#"><span class="glyphicon glyphicon-briefcase"></span> Friend List</a>
+                <li class="AddFriendClass">
+                  <a href="#AddFriendModal" role="button"  class="btn btn-large btn-link" data-toggle="modal" > Add Friends</a>
                 </li>
                 <li>
                   <a href="#"><span class="glyphicon glyphicon-off"></span> Sign out</a>
@@ -119,11 +120,14 @@
       <div><h4> calling to  <strong><b>{{name}}</b> </strong></span></h4>
       </template> 
 
+<template id="EventHostTemplate">
+  {{name}}
+</template>
       <template id="eventTemplate">
        <div class="col-sm-4 col-md-12 feature">
         <div class="panel panel-default">
           <div class="panel-heading eventPanel" ><button class="close eventCloseBtn" ><strong><b style="color:white; font-size:30px">&times;</b></strong></button>
-            <h3 class="panel-title">{{EventTime}}</h3>
+            <h3 class="panel-title eventTime"><p class="lead nameLead">{{name}}</p>   event at {{EventTime}}</h3>
           </div><!-- end panel-heading -->
           <div class="panel-body eventpanelClass">
             <div> <b>Event : </b>
@@ -258,6 +262,100 @@
    </div>
  </div>
 </div>
+
+<!-- Carosel -->
+<div class="modal fade" id="AddFriendModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button class="close" data-dismiss="modal">&times;</button>              
+       <h4 class="modal-title "> Add your best friend detail here</h4>
+     </div>
+     <div class="modal-body">    
+           <div class="carousel slide" id="myCarousel">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+        <li data-slide-to="1" data-target="#myCarousel"></li>
+        <li data-slide-to="2" data-target="#myCarousel"></li>
+        <li data-slide-to="3" data-target="#myCarousel"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active" id="slide1">
+          <div class="carousel-caption">
+            <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputFriendName">Name</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputFriendName" placeholder="May i Know your name Plz?" type="text">
+          </div>
+          </div>
+          </form>          
+          </div><!-- end carousel-caption-->
+        </div><!-- end item -->
+        
+        <div class="item" id="slide2">
+          <div class="carousel-caption">
+            <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputName">Emai ID</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputEmail" placeholder="shyam@smile.com" type="text">
+          </div>
+          </div>
+          </form>            
+          </div><!-- end carousel-caption-->
+        </div><!-- end item -->
+        
+        
+        <div class="item" id="slide3">
+          <div class="carousel-caption">
+            <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputName">Phone Number</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputPhoneNumber" placeholder="Phone Number Plz" type="text">
+           </div>
+          </div>
+          </form>            
+          </div><!-- end carousel-caption-->
+        </div><!-- end item -->
+        
+        <div class="item" id="slide4">
+          <div class="carousel-caption">
+           <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputName">Address</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputAddress" placeholder="Enter your Address" type="text">
+          </div>
+          <button class="btn btn-primary" class="close" data-dismiss="modal" type="button" id="friendBtnSubmit">Add</button>
+           </div>
+          </div>
+          </form>            
+          </div><!-- end carousel-caption-->
+        </div><!-- end item -->
+        </div>
+      
+      <!-- Controls -->
+      <a class="left carousel-control" data-slide="prev" href="#myCarousel"><strong><b><span class="icon-prev"></strong></b></span>
+      </a>
+      <a class="right carousel-control" data-slide="next" href="#myCarousel"><strong><b><span class="icon-next"></strong></b></span>
+      </a>
+
+    </div><!-- end myCarousel -->
+     </div>           
+   </div>
+ </div>
+</div>
+
+
+
+
+
 <!-- Modal End -->
 
 <div class="row" id="moreInfo">
@@ -269,7 +367,7 @@
         <li class="eventTabClass"><a href="#tab3" data-toggle="tab">Upcoming Events</a></li>
       </ul>
 
-      <div class="tab-content ">
+      <div class="tab-content firstTabContent">
         <div class="tab-pane active" id="tab1">             
         </div>
 
@@ -297,29 +395,6 @@
  </div><!-- end tabbable --> 
 </div><!-- end col-sm-6 --> 
 </div><!-- end row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="push"></div>
 
