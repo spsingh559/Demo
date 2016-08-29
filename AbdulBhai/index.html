@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Setting up your development environment</title>
+  <meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+  
+  <style>
+    #mainContainer{
+     background-color: #5DADE2;
+     text-align: center;
+   }
+   #navHeader{
+     /*text-align: center;*/
+     float: none;
+     color: white;
+
+   }
+   .panel-title{text-align: center;}
+   #features{ margin-top: 100px;  }
+   @media (max-width: 768px) {
+    #features{margin-top: 120px;}
+    }
+  .AtomText{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   text-align: left;
+   color: black;
+   height: 350px;
+ }
+ .footerClass {
+   background:black;
+   color: white;
+   font-size: 11px;
+   padding: 20px;   
+   font-family: 
+ }
+</style>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container" >
+    <div class="container-fluid">
+      <div class="navbar navbar-default navbar-fixed-top" id="mainContainer">
+        <div class="navbar-header" id="navHeader">
+          <h1>Windows-based Software Installers</h1>
+        </div> <!--navbar-header end tag -->         
+      </div><!--navbat end tag-->
+    </div><!-- container-fluid end -->
+    <!-- header end -->
+    <div class="row" id="features">
+      <div class="col-sm-4 ">
+        <div class="panel panel-default panel-primary AtomText">
+          <div class="panel-heading">
+            <h3 class="panel-title"><b>Text Editor</b></h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body">
+            <p>For writing code, we recommend to use the Atom Text Editor</p> <ul><li> Download -
+            <a href="./Setup/Windows/AtomSetup.exe">Atom Windows Setup</a>
+            <hr>
+          </li></ul>
+          <p>If you somehow are unable to install or like to use Atom Text Editor, you can use the Sublime editor</p>
+          <ul><li> Download -
+            <a href="./Setup/Windows/SublimeText3_x64_Setup.exe">Sublime Text Editor</a>
+          </li></ul>
+
+        </div>
+      </div> <!-- panel body tag -->
+    </div><!-- end panel -->
+
+    <div class="col-sm-4 feature">
+      <div class="panel panel-default panel-primary AtomText">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b>Git Bash</b></h3>
+        </div><!-- end panel-heading -->
+        <div class="panel-body">
+          <p>Git Bash is Unix-like shell but primarily used for managing Git </p><ul><li>
+          Download - <a href="./Setup/Windows/Git-2.9.3.2-64-bit.exe">Git Bsah</a></li></ul>
+        </div> <!-- panel body tag -->
+      </div><!-- end panel -->
+    </div>
+
+    <div class="col-sm-4 feature">
+      <div class="panel panel-default panel-primary AtomText">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b>Speecy Installation</b></h3>
+        </div><!-- end panel-heading -->
+        <div class="panel-body">
+         <p> We will be working on a Linux environment therefore it is a best to work on a Virual Environment, so that we do not have compatibility issues and provide a clean and fast development environment </p>
+         <p>You need to check whether Virtualization is enabled on your processor, to check the same, you can use the Speccy. Speecy provides the detailed system information. If Virtualization is not enabled, you would need to reboot and enable it through your System BIOS.</p>
+         <ul><li>Download -
+           <a href="./Setup/Windows/spsetup129.exe">Speecy</a>
+         </li></ul>
+       </div> <!-- panel body tag -->
+     </div><!-- end panel -->
+   </div>
+ </div><!-- end feature -->
+
+
+ <div class="row" id="secondRow">
+  <div class="col-sm-4 feature">
+    <div class="panel panel-default panel-primary  AtomText">
+      <div class="panel-heading">
+        <h3 class="panel-title"><b>Oracle Virtual Box 4.3.3</b></h3>
+      </div><!-- end panel-heading -->
+      <div class="panel-body">
+        <p>You would require to install Oracle Virtual Box 4.3.3 (Please do not use the latest version as it has some compatibility issues with Vagrant</p>
+        <ul >
+          <li >Windows 8 -
+            <a href="./Setup/Windows/VirtualBox-4.3.30-101610-Win.exe">VirtualBox-4.3.30</a></li>
+            <li >
+              Windows 10 Users - <a href="./Setup/Windows/VirtualBox-5.1.4-110228-Win.exe">VirtualBox-5.1.4</a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- panel body tag -->
+    </div><!-- end panel -->
+
+    <div class="col-sm-4 feature">
+      <div class="panel panel-default panel-primary AtomText">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b>Vagrant</b></h3>
+        </div><!-- end panel-heading -->
+        <div class="panel-body">
+          <p>we would require an environment containing isolated dependencies and their configuration within a single disposable machine without sacrificing any of the tools we'er used to working with (editors, browsers, debuggers, etc.) </br>
+            Vagrant provides easy to configure, reproducible, and portable work environments controlled by a single consistent workflow to help maximize the productivity and flexibility</p>
+            <ul><li><p>Windows 8
+              <a href="./Setup/Windows/vagrant_1.7.4.msi">Vagrant 1.7.4</a>
+            </li>
+            <li>
+              <p>For Windows 10 - <a href="./Setup/Windows/vagrant_1.8.5.msi">Vagrant 1.8.5</a></p>
+            </li>
+            <li> <p> cmder is Unix-like shell <a href="./Setup/Windows/cmder.zip">cmder.zip</a></p>
+            </li>            
+          </div> <!-- panel body tag -->
+        </div><!-- end panel -->
+      </div>
+    </div><!-- end feature -->
+  </div><!-- container end -->
+
+  <footer class="footerClass">
+    <div class="container">
+      <div class="row">
+        <p><b>
+         &copy, All Rights Reserved. - All product names and installers are the property of their respective owners, which are in no way associated or affiliated with NIIT. Product names and installers are used solely for the purpose of facilitating download of software for training purposes and NIIT is no way responsible for any damage, bug, or virus arisen due to installation of the above listed software.</p><b>
+       </div><!-- end row -->
+     </div><!-- end container -->
+   </footer>
+ </body>
+ </html>
