@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chart Representaion</title>
+  <meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Bootstrap Css -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-glyphicons.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <!-- header start -->
+  <div class="container" >
+    <!-- header start -->
+    <div class="container-fluid">
+      <div class="navbar navbar-default navbar-fixed-top" id="mainContainer">
+        <div class="navbar-header" id="navHeader">
+          <h1> Movie Finder.com </h1>
+        </div> <!--navbar-header end tag -->         
+      </div><!--navbat end tag-->
+    </div><!-- container-fluid end -->
+    <!-- header end -->
+
+   <!--content start -->
+    <div class="row" id="chartRow">
+      <div class=" col-sm-12">
+        <div class="images">
+        </div>
+        <!-- <form class="navbar-form" role="search">
+          <div class="input-group" id="searchid">
+            <input type="text" class="form-control" placeholder="Search your movie here" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="button" id="find"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>       -->  
+      </div> <!--col-sm-12 end -->
+    </div> <!-- row tag end -->
+   <!--  <div class="alert alert-success alert-block fade in" id="successAlert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>       
+      <h4> Request Successfull!</h4>
+      <p>See the list of your searched movie</p>
+    </div> --><!-- end alert -->
+    <!-- <div class="alert alert-danger alert-block fade in" id="FailAlert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>       
+      <h4> Bad Search</h4>
+      <p>Movie not found, search once again</p>
+    </div> --><!-- end alert -->
+    <div class="row" id="featuresHeading">
+      <div class="col-sm-12">
+        <h2>Movies List</h2>
+        <p class="lead">Find all the detail of your movie here </p>
+      </div><!-- end col-12 -->
+    </div><!-- end featuresHeading -->
+
+<!-- Template -->
+      <!-- <template id="imgTblTemplate">
+       <img src={{Poster}} style="width:300px; height:150px;" />
+      </template>  
+      <template id ="dataTemplate">
+        <table class="table" id="para">
+          <tr><td> Name : </td><td>{{Title}} </td></tr>
+          <tr><td> Year : </td><td>{{Year}} </td></tr>
+          <tr><td> IMDB ID : </td><td>{{imdbID}} </td></tr>
+          <tr><td> Movie Type : </td><td>{{Type}}</td></tr>
+        </table>   
+      </template>   -->
+    <!-- Template End -->
+
+    <div class="row" id="features">
+              <div class="col-sm-12 feature">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Movie Detail</h3>
+              </div> <!--end panel-heading -->
+              <div class="panel-body" id="componentBody">                     
+              </div>  <!-- panel body tag -->        
+            </div> <!-- end panel -->
+          </div><!-- end feature -->
+      
+         <!-- <div class="col-sm-6 feature">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Movie Detail</h3>
+              </div>  <!-- end panel-heading  -->
+             <!--  <div class="panel-body dataBody" > -->
+             <!--  </div>  --><!-- end panel body -->
+           <!-- </div>  --> <!-- end panel -->
+      <!--   </div> --><!-- end col-sm-6 -->     
+    </div> <!-- row end -->   
+     </div><!-- container end -->
+
+  <footer class="footerClass">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <h6>Copyright &copy; 2013 {Shyam}</h6>
+        </div><!-- end col-sm-2 -->          
+        <div class="col-sm-4">
+          <h6>About Us</h6>
+          <p> Finad all the latest movies</p>
+        </div><!-- end col-sm-4 -->
+
+        <div class="col-sm-2">
+          <h6>Navigation</h6>
+          <ul class="unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Links</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!-- end col-sm-2 -->
+
+        <div class="col-sm-2">
+          <h6>Follow Us</h6>
+          <ul class="unstyled">
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Google Plus</a></li>
+          </ul>
+        </div><!-- end col-sm-2 -->
+
+        <div class="col-sm-2">
+          <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Shyam</h6>
+        </div><!-- end col-sm-2 -->
+      </div><!-- end row -->
+    </div><!-- end container -->
+  </footer>
+
+
+
+
+  <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"</script> -->
+
+    <script type="text/javascript" src="./bower_components/react/react.js"></script>
+    <script type="text/javascript" src="./bower_components/react/react-dom.js"></script>
+    <script type="text/javascript" src="./bower_components/babel/browser.js"></script>
+    <script type="text/javascript" src="bundle.js"></script>
+
+ <!-- <script type="text/javascript" src="js/mustache.js"></script> -->
+  <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+  <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- custom js -->
+  <!-- <script type="text/javascript" src="js/script.js"></script> -->
+</body>
+</html>
