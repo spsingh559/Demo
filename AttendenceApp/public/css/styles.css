@@ -1,0 +1,186 @@
+/*
+
+My Custom CSS for Login/SignUp Page
+===================================
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+   
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+   
+/* --------------------------------------
+   Login & Sign-Up
+   -------------------------------------- */
+   
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+
+#MainPage{
+	margin-top: 110px;
+}
+/*.esp {
+    background-color: #2f3339;
+    color: #fff;
+    text-align: center;
+    padding: 500px 500px 186px 0;
+    /*padding: 8rem 0 11.625rem 0;*/
+/*}*/
+/*.section-title.centered {
+    text-align: center;
+}*/
+/*.section-title {
+    /*margin: 0 auto 90px;
+   /* margin: 0 auto 5.625rem;
+    max-width: 730px;*/
+    /*max-width: 45.625rem;*/
+/*}*/
+/*/*/
+/*@media (min-width: 34em){
+.esp .card {
+    width: 50%;
+}
+*/
+/*.esp .card {
+    border: 0;
+    background: none;
+    float: left;
+}*/
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 2rem;
+    padding: 10px 10px 10px 10px;
+    /*margin:1px 1px 1px 1px;*/
+}
+.secondRow{
+  margin-top: 20px;
+}
+
+#btnDiv, #contentPage,.content, .hiddenData,.requestThumb{
+  display: none;
+}
+.card .card-block img {
+    width: 300px;
+    height: 175px;
+}
+
+@media (max-width: 480px) {
+    #attendenceId{
+  margin-left: 0px !important;
+ 
+}
+.attendenceThumb,.requestThumb{
+  margin-left: 0px !important;
+}
+.presentThumb{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+   	#attendenceId{
+  margin-left: 0px !important;
+  
+}
+.attendenceThumb,.requestThumb{
+  margin-left: 0px !important;
+}
+.presentThumb{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+   
+}
+div#form1{
+width:250px;
+height:430px;
+border:2px solid #a5a5a5;
+padding:20px;
+background-color:#f3f3f3;
+border-radius:3px;
+float:left;
+text-align:center;
+margin-left:100px;
+margin-top:50px
+}
+/*h3,p{
+text-align:center;
+font-family:'Raleway',sans-serif;
+color:#006400
+}*/
+/*input{
+width:100%;
+margin:10px 0;
+padding:5px;
+height:35px;
+box-shadow:1px 1px 1px 1px gray;
+border-radius:3px
+}*/
+/*input#submit{
+width:100%;
+margin:10px 15px 10px 0;
+padding:5px;
+background-color:#3fb8e8;
+box-shadow:0 3px 0 0 #3293ba;
+border-radius:3px;
+color:#fff;
+height:41px;
+font-size:16px
+}
+textarea{
+margin:10px 0;
+padding:5px;
+box-shadow:1px 1px 1px 1px gray;
+border-radius:3px
+}*/
+/*div#container{
+margin:50px auto;
+width:960px
+}*/
+/*h2{
+font-family:'Raleway',sans-serif;
+color:#006400;
+text-shadow:1px 1px 1px gray
+}*/
+.attendenceThumb,.requestThumb{
+  margin-left: 80px;
+  margin-top: 10px;
+}
+
+#attendenceId{
+  margin-left: 0px;
+  margin-top: 30px;
+}
+#reportId{
+  margin-top: 30px;
+
+}
+.presentThumb{
+  margin-left: 30px;
+  margin-right: 20px;
+}
+.btnWell{
+  height: 100px;
+}
+/*.page-header {
+    padding-bottom: 9px;
+    margin: 20px 0 20px;
+    /* border-bottom: 1px solid #eee; */
+/*}*/

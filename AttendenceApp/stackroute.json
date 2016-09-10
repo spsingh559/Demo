@@ -1,0 +1,174 @@
+{
+  "user": [
+    {
+      "id": 100001,
+      "registered": true,
+      "userType": "admin",
+      "batch": 0,
+      "subCategory": 0,
+      "email": "a@x.in",
+      "name": "Susanne York",
+      "logkey": "p123",
+      "contactNumber": 9123456789
+    },
+    {
+      "id": 500001,
+      "registered": true,
+      "userType": "student",
+      "batch": 0,
+      "subCategory": 0,
+      "email": "a@x.in",
+      "name": "Sager",
+      "logkey": "p123",
+      "contactNumber": 9123456789
+    },
+    {
+      "id": 100002,
+      "registered": true,
+      "userType": "student",
+      "form": true,
+      "formId": 0,
+      "batch": 0,
+      "subCategory": 0,
+      "email": "abc1@xyz.in",
+      "name": "Hillary Vazquez",
+      "logkey": "password123",
+      "contactNumber": 9123456789
+    },
+    {
+      "id": 100003,
+      "registered": true,
+      "userType": "admin",
+      "batch": 2,
+      "subCategory": 2,
+      "email": "abc2@xyz.in",
+      "name": "Kate Terry",
+      "logkey": "password123",
+      "contactNumber": 9123456789
+    },
+    {
+      "id": 100004,
+      "registered": true,
+      "userType": "student",
+      "batch": 3,
+      "subCategory": 3,
+      "email": "abc3@xyz.in",
+      "name": "Addie Brown",
+      "logkey": "password123",
+      "contactNumber": 9123456789
+    },
+    {
+      "id": 100005,
+      "registered": true,
+      "userType": "admin",
+      "batch": 4,
+      "subCategory": 4,
+      "email": "abc4@xyz.in",
+      "name": "Salas Dillon",
+      "logkey": "password123",
+      "contactNumber": 9123456789
+    }
+  ],
+  "batch": [
+    {
+      "id": 0,
+      "batchName": "Full-Stack-Wave 9",
+      "status": "active"
+    }
+  ],
+  "subCategory": [
+    {
+      "id": 0,
+      "categoryName": "Team 1",
+      "mentorId": 500001
+    }
+  ],
+  "form": [
+    {
+      "id": 0,
+      "author": 500001,
+      "security": "public",
+      "title": "Form Title",
+      "subTitle": "Form Subtitle",
+      "targetAudience": "all"
+    }
+  ],
+  "fields": [
+    {
+      "id": 0,
+      "formId": 0,
+      "label": "Name",
+      "type": "text",
+      "placeholder": "Enter your Name",
+      "validation": "required"
+    },
+    {
+      "id": 1,
+      "formId": 0,
+      "label": "Mobile",
+      "type": "text",
+      "placeholder": "Enter contact Number",
+      "validation": "required"
+    },
+    {
+      "id": 1,
+      "formId": 0,
+      "label": "Mobile",
+      "type": "button",
+      "validation": "required"
+    }
+  ],
+  "formResult": [
+    {
+      "id": 0,
+      "formId": 0,
+      "submitterId": 111111,
+      "data": {
+        "Name": "ABC",
+        "Mobile": 9874523431
+      }
+    }
+  ],
+  "attendance": [
+    {
+      "id": 0,
+      "userId": 100002,
+      "date": "9/10/2016"
+    },
+    {
+      "userId": 100002,
+      "date": "10/09/2016",
+      "id": 1
+    },
+    {
+      "userId": 100003,
+      "date": "10/09/2016",
+      "id": 2
+    },
+    {
+      "userId": 100004,
+      "date": "10/09/2016",
+      "id": 3
+    },
+    {
+      "userId": 100005,
+      "date": "11/09/2016",
+      "id": 4
+    },
+    {
+      "userId": 100006,
+      "date": "11/09/2016",
+      "id": 5
+    },
+    {
+      "userId": 100007,
+      "date": "11/09/2016",
+      "id": 6
+    },
+    {
+      "userId": 100008,
+      "date": "11/09/2016",
+      "id": 7
+    }
+  ]
+}

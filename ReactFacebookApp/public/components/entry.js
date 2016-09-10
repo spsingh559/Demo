@@ -1,0 +1,1 @@
+document.Write("Entry.js");

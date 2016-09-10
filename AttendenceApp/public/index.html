@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wts App</title>
+  <meta name="viewport" content=" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <!-- Bootstrap Css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-glyphicons.css">
+  <!-- Custom css -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <!-- header start -->
+  
+<!-- <div class="container" id="student-main"> -->
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header logoheader">
+        <a href="#" class="navbar-brand mylogo" alt="Logo"><!-- <img src="image/logofull.png" alt="brand" class="mymainlogo"> -->
+          Stack Route
+        </a>
+      </div>
+      <div class="nav navbar-nav navbar-right dropdown">
+        <span>Welcome :</span>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;
+              <span class="studentUser">user</span><span class="caret"></span>
+            </a>
+
+             <!--  <a href="#friendDetailModal" role="button" data-id ={{id}} class="btn btn-large btn-link pull-right frienddetailBtn" data-toggle="modal">{{name}}</a>  -->
+
+             <ul class="dropdown-menu">
+              <li id="MyInfo"><a href="#MyInfoModal" data-toggle="modal" role="button" class="btn btn-large btn-link infoBtn" >
+              My Info</a></li>
+              <li><a href="#">Account Setting</a></li>
+             <!--  <li><a href="#">LogOut</a></li> -->
+            </ul>
+            &nbsp;|&nbsp;
+            <a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a>
+        </div>
+      </div>
+    </div>  <!-- End of Navbar -->
+    </div> <!-- End of Container -->
+  </div> <!-- End of Navbar -->
+<!-- </div> End of Main Container
+ -->
+  <div class="container" id="MainPage">
+    <div class="row">
+        <div class="card col-md-4 col--6" id="attendence" 
+          data-toggle="tooltip" data-placement="top" 
+          title="Mark your Attendence">
+            <div class="card-block"><center>
+              <img alt="Attendence" data-no-retina="true" 
+              src="image/attendence.jpg" /></center>
+           </div>
+        </div>
+        <div class="card col-md-4 col--6" id="report"
+            data-toggle="tooltip" data-placement="top" 
+            title="Attendence Report">
+            <div class="card-block" ><center>
+               <img alt="Attendence Report" data-no-retina="true" src="image/attReport.png"/></center>
+            <!-- <span >Your attendence Report</span> -->
+            </div>
+        </div>
+        <div class="card col-md-4 col--6" id="notification"
+            data-toggle="tooltip" data-placement="top" 
+            title="See Notification">
+            <div class="card-block"><center>
+               <img src="image/notification.png"  alt="Notification" data-no-retina ="true"/></center>
+            </div>
+        </div>
+        </div> <!-- row end -->
+        <div class="row secondRow" >
+            <div class="card col-md-4 col--6" id="manageTask"
+                data-toggle="tooltip" data-placement="bottom" 
+                title="Manage your Task" >
+               <div class="card-block">
+               <center>
+                  <img alt="Manage your task" data-no-retina="true" src="image/workImg.gif" /></center>
+                  <!-- <div class="carousel-caption navbar-fixed-top ">
+                  <h4 style="color:black" ><b>Manage your Task<b></h4>
+              
+                  </div><!-- end carousel-caption--> 
+               </div>
+           </div>
+        <div class="card col-md-4 col--6" id="knowledgeBase"
+             data-toggle="tooltip" data-placement="bottom" 
+             title="Knowlede Base">
+               <div class="card-block">
+               <center>
+                   <img alt="Knowledge Base" data-no-retina="true"  src="image/kbase.jpg"  /></center>
+               </div>
+        </div>
+        <div class="card col-md-4 col--6" id="SoftInstallation"
+             data-toggle="tooltip" data-placement="bottom" 
+             title="Software Installtion">
+             <div class="card-block">
+             <center>
+                  <img alt="Software Installation" data-no-retina="true" src="image/softInstallation.jpg"  /></center>
+             </div>
+      </div>
+    </div><!-- secondRow End -->
+
+<div id="btnDiv" class="navbar-default-fix-top">
+<div class="well btnWell">
+    <!-- <div class="page-header"> -->
+   <center> <button type="button" class="btn btn-default btn-primary pull-left" id="backBtn">
+      <span class="glyphicon glyphicon-fast-backward"></span> Back
+    </button></center>
+    <center><h3 id="pageId">Page</h3></center>
+    </div>
+    <!-- <div class="hiddenDiv"> -->
+      
+    <!-- </div> -->
+</div>
+
+<div id="attendenceId" class="content">
+
+<div class="col-sm-4 col-md-6 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Attendence Tracker </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body attendencePanelBody">
+             <div class="thumbnail col-sm-8 attendenceThumb">
+              <!-- <img src="..." alt="..."> -->
+                 <div class="caption">
+                   <h3>Todays Date: <span id="date">Date</span></h3>
+                   <!-- <p>...</p> -->
+                   <hr>
+                   <center>
+                     <button type="button" class="btn btn-primary btn-lg attendenceBtn">Present</button>
+                   </center>
+                </div>
+           </div>
+
+           <div class="thumbnail col-sm-8 requestThumb">
+              <!-- <img src="..." alt="..."> -->
+                 <div class="caption">
+                   <h3>Ohh! you are late, see Time:
+                   <span class="time"></span> </h3></br>
+                   <h4> Request Admin for attendence </h4>
+                   <!-- <p>...</p> -->
+                   <hr>
+                   <center>
+                     <button type="button" class="btn btn-warning btn-lg attendenceBtn">Present</button>
+                   </center>
+                </div>
+           </div>
+
+          </div> 
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 AttendenceStatus">
+        <div class="panel panel-default panel-danger pnlDanger"
+         id="col_fld_6">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Attendence Status </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+          <center>
+              <img src="image/complete.png" class="img-responsive img-circle"   id="imgID"/>
+          <h3 class="attendh3">Mark Your Attendence</h3>
+          </center>
+           </div>
+          </div> 
+        </div>
+      </div>
+</div>
+
+<div id="reportId" class="content">
+<div class="container">
+  <div class="col-sm-4 col-md-6 reportStatus">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading" >
+            <h3 class="panel-title "><center>Attendence Report </center>
+            </h3>
+          </div>
+          <div class="panel-body reportPanelClass">
+           </div>
+          </div> 
+        </div>
+
+          <div class="thumbnail col-sm-2 navbar-default-fix-top presentThumb">
+          <div class="carousel-inner">
+             <center> <img src="image/presentImage.jpg" alt="present"></center>
+             <div class="carousel-caption"><h2 style="color:black">25</h2> </div>
+             </div>
+                 <div class="caption">
+                 <center>
+                   <h3 style="color:green">Present<!-- <span id="presentSpan">25</span> --></h3></center>
+                </div>
+           </div>
+
+           <div class="thumbnail col-sm-2 navbar-default-fix-top AbsentThumb"> <div class="carousel-inner">
+             <center> <img src="image/absentCount.png" alt="absent"></center>
+              <div class="carousel-caption"><h2 style="color:black" >5</h2>
+              </div> 
+              </div>
+                 <div class="caption"><center>
+                   <h3 style="color:red">Absent<!-- <span class="absentSpan">2</span> --> </h3></center>
+                </div>
+           </div>
+           </div>
+    
+</div>
+
+<div id="notificationId" class="content">
+<div class="container">
+<h2>Dynamically Created Form Using jQuery</h2>
+<div id="form1">
+<!-- Dynamic Form Div -->
+</div></div>
+</div>
+
+<div id="manageTaskId" class="content">
+<p id="text">Manage Task</p>
+</div>
+
+<div id="SoftInstallationId" class="content">
+<p id="text">Soft Installation</p>
+</div>
+
+<div id="knowledgeBaseId" class="content">
+<p id="text">Knowledge Base</p>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="MyInfoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button class="close" data-dismiss="modal">&times;</button>          
+       <h4 class="modal-title MyInfoModalTitle">Your Information:
+       <!-- <span class="hiddenData" id="batchs">Name</span> -->
+       </h4>
+     </div>
+     <div class="modal-body MyInfoModalBody">                             
+     </div>             
+     <div class="modal-footer">
+      <a role="button" class="btn btn-large btn-primary"  data-dismiss="modal"> Back</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--Template -->
+<template id="infoTemplate">
+       <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>{{name}} </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+            <div> 
+              <ul style="text-decoration:none">    
+                <li><b> Email Address : </b>{{email}} </li>
+                <li> <b>Contact Number :</b>{{contactNumber}} </li>
+              </ul>
+            </div>  
+          </div> 
+        </div>
+      </div>
+    </template>
+
+    <template id="batchTemplate">
+    <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Batch Name </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+            <div> 
+              <ul style="text-decoration:none">    
+                <li > <b>Batch :</b>{{batchName}} </li>
+              </ul>
+            </div>  
+          </div> 
+        </div>
+      </div>
+    </template>
+
+    <template id="catagoryTemplate">
+    <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Project Name </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+            <div> 
+              <ul style="text-decoration:none">    
+                 <li >{{categoryName}} </li>
+              </ul>
+            </div>  
+          </div> 
+        </div>
+      </div>
+    </template>
+
+    <template id="mentorTemplate">
+    <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Mentor Name </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <div class="panel-body eventpanelClass">
+            <div> 
+              <ul style="text-decoration:none">    
+                <li > {{name}} </li>
+              </ul>
+            </div>  
+          </div> 
+        </div>
+      </div>
+    </template>
+
+<!-- <template id="NotificationTemplate">
+       <div class="col-sm-4 col-md-12 feature">
+        <div class="panel panel-default panel-primary">
+          <div class="panel-heading eventPanel" >
+            <h3 class="panel-title eventTime"><center>Form Name:{{title}} </center>
+            </h3>
+          </div><!-- end panel-heading -->
+          <!-- <div class="panel-body eventpanelClass">
+            <input type={{type}} name="{{label}}" placeholder="">  
+          </div> 
+        </div>
+      </div>
+    </template> --> 
+
+
+
+
+  </div><!-- container end -->
+
+
+
+<!-- <script src="includes/jquery/myquerystudent.js"></script> -->
+
+
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+
+   <script type="text/javascript" src="js/mustache.js"></script>
+   <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+   <!-- s -->
+   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   <!-- custom js -->
+   <script type="text/javascript" src="js/script.js"></script>
+ </body>
+ </html>
