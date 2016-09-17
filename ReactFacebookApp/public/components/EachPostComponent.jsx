@@ -10,6 +10,7 @@ var LikeComponent= require('./LikeComponent.jsx');
 import {Card, CardActions,CardHeader,CardMedia,CardTitle,CardText}
 from 'material-ui/Card'
 import TextField from 'material-ui/TextField';
+import Toggle from 'material-ui/Toggle';
 
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -24,8 +25,32 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
 var EachPostComponent =React.createClass({
 	getInitialState:function(){
-		return {editBtn:false,postText:'',displayInfo:false	};
+		return {
+			editBtn:false,
+			postText:'',
+			displayInfo:false,
+			expanded:false
+				};
+				console.log("expand is" + expanded);
 	},
+	handleExpandChange:function(expanded){
+		console.log("expand change");
+		this.setState({expanded:expanded});
+	},
+	handleExpand:function(){
+		console.log("expand");
+		this.setState({expanded:true});
+	},
+
+  handleToggle:function(toggle) {
+  	console.log("toggle");
+    this.setState({expanded: toggle});
+  },
+
+   handleReduce:function() {
+   	console.log("reduce");
+    this.setState({expanded: false});
+  },
 	handleTextChange:function(e){
 		e.preventDefault();
 		this.setState({postText:e.target.value});
@@ -174,42 +199,7 @@ render:function(){
 				</CardText>
 				</Card>
 				</Paper>
-				{/*
-					<div className="panel panel-default panel-primary AtomText">
-		       			 <div className="panel-heading">
-		         			 <h4 className="panel-title" style={footerStyle}>
-		         			<img src={this.props.pic.picture}
-				         	 className="img-responsive img-thumbnail"
-				         	 style={imageStyle} 
-				           	 /> has posted  			 
-		        			 <p className="pull-right">{this.props.postTimekey}{" "}
-		         			 <span className="glyphicon glyphicon-ok" 
-		         			 data-toggle="tooltip"
-		         			 title="Save the post" 
-		          			 onClick={this.handleEditSave}
-		          			 /> {' '} 
-		          			 <span className="glyphicon glyphicon-remove"
-		         			 data-toggle="tooltip"
-		           			 title="Cancel the Change"
-		           			 onClick={this.handleEditCancel} 
-		           			 />
-		          			</p></h4>
-		       			 </div>
-		      			 <div className="panel-body">
-				         	<div className="message-wrapper" >
-								<form role="form">
-									<div className="form-group">
-										<textarea className="form-control" 
-										rows="5"
-										defaultValue={this.props.postContent}
-										onChange={this.handleTextChange}
-										 id="comment"></textarea>
-									</div>
-								</form>	
-							</div>							
-		        		</div> 
-		     		 </div>
-				*/}
+				
     			</div>
 			</div>
 		);
@@ -220,12 +210,13 @@ render:function(){
 		<div className="EachPostPanel" >
 		<div className="col-sm-8" style={style}>
 		
-			<Card >
+			<Card showExpandableButton={true}>
 			<Paper  zDepth={3} >
 				<CardHeader title="ram has posted"
 				style={CardStyle}
 				subtitle={this.props.postTimekey}
 				avatar="{this.props.pic}"
+				
 				// onClick={this.handlePhoto} 
 				>
 					{/*<h4 className="pull-right">
@@ -256,7 +247,8 @@ render:function(){
  	</MenuItem>
     </IconMenu></h4>
 				</CardHeader>
-				<CardText>
+				 
+				<CardText expandable={true} >
 				{this.props.postContent}
 				</CardText>
 				<Divider /></Paper><Paper zDepth={1}>

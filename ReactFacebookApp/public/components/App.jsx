@@ -9,10 +9,12 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 var injectTapEventPlugin = require("react-tap-event-plugin");
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Dialog from 'material-ui/Dialog';
 injectTapEventPlugin();
 import React from 'react';
 import ReactDOM from 'react-dom';
+import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 var PostDisplayComment= require('./PostDisplayComment.jsx');
 var PostComponent= require('./PostComponent.jsx'); 
@@ -26,8 +28,20 @@ const muiTheme = getMuiTheme({
 
 var FaceBookComponent=React.createClass({
 	getInitialState:function(){
-		console.log("0");
-		return { data:[],picData:[],open:false,message:'Default message'};
+		return { 
+			data:[],
+			picData:[],
+			open:false,
+			message:'Default message',
+			expanded:false,
+			openDialogue:false
+		};
+	},
+	// handleOpen:function(){
+	// 	this.setState({openDialogue:true});
+	// },
+	handleClose:function(){
+		this.setState({openDialogue:false});
 	},
 	componentWillMount: function() {
 		$.ajax({
@@ -147,25 +161,65 @@ var FaceBookComponent=React.createClass({
 
 	},
 	undo:function(){
-		alert('undo clicked');
+		console.log("undo click");
+		// this.openDialogue();
+		this.setState({openDialogue:true});
 	},
 	handleRequest:function(){
 		this.setState({open:false});
 	},
 	render:function(){
+		const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
+
 		var sty={background:'#4F6AF2'};
 		console.log("1");
 				return(
 					<MuiThemeProvider  muiTheme={muiTheme}>
 			<div> 
 				<Snackbar open={this.state.open}
+				expanded={this.state.expanded} onExpandChange={this.handleExpandChange}
 				// autoHideDuration={4000}
 				message={this.state.message}
 				bodyStyle={sty}
 				 action="undo"  //label for button
 				 onActionTouchTap={this.undo} //action for any button
 				 onRequestClose={this.handleRequest} //for autohide on button click
-				 />
+				 >
+      {/* write about card here*/}
+      {/*<Card actAsExpander={true}
+                showExpandableButton={true} > 
+             <CardText expandable={true}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+              </CardText>
+            </Card>*/}
+            <div> Hello </div>
+          </Snackbar>
+          <Dialog
+          title="Request Detail"
+          actions={actions}
+          modal={false}
+          open={this.state.openDialogue}
+          onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
+        >
+        <p>Aneesh has sent request </p>
+        <p> Raj has sent request </p>
+         </Dialog>
 				
 				<div className="PostComponentClass">
 					<PostComponent AfterPost={this.updatePost}
