@@ -33,7 +33,6 @@ var FaceBookComponent=React.createClass({
 			picData:[],
 			open:false,
 			message:'Default message',
-			expanded:false,
 			openDialogue:false
 		};
 	},
@@ -189,37 +188,13 @@ var FaceBookComponent=React.createClass({
 					<MuiThemeProvider  muiTheme={muiTheme}>
 			<div> 
 				<Snackbar open={this.state.open}
-				expanded={this.state.expanded} onExpandChange={this.handleExpandChange}
+				
 				// autoHideDuration={4000}
 				message={this.state.message}
 				bodyStyle={sty}
-				 action="undo"  //label for button
-				 onActionTouchTap={this.undo} //action for any button
-				 onRequestClose={this.handleRequest} //for autohide on button click
+				onRequestClose={this.handleRequest} //for autohide on button click
 				 >
-      {/* write about card here*/}
-      {/*<Card actAsExpander={true}
-                showExpandableButton={true} > 
-             <CardText expandable={true}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-              </CardText>
-            </Card>*/}
-            <div> Hello </div>
           </Snackbar>
-          <Dialog
-          title="Request Detail"
-          actions={actions}
-          modal={false}
-          open={this.state.openDialogue}
-          onRequestClose={this.handleClose}
-          autoScrollBodyContent={true}
-        >
-        <p>Aneesh has sent request </p>
-        <p> Raj has sent request </p>
-         </Dialog>
 				
 				<div className="PostComponentClass">
 					<PostComponent AfterPost={this.updatePost}

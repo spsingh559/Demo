@@ -27,7 +27,7 @@ var EachPostComponent =React.createClass({
 	getInitialState:function(){
 		return {
 			editBtn:false,
-			postText:'',
+			// postText:this.props.postContent,
 			displayInfo:false,
 			expanded:false
 				};
@@ -62,6 +62,10 @@ var EachPostComponent =React.createClass({
 	},
 	handleEdit:function(){
 		this.setState({editBtn:true})
+		this.setState({
+			postText:this.props.postContent 
+		});
+
 	},
 	handleEditCancel:function(){
 		this.setState({editBtn:false});
@@ -102,6 +106,7 @@ render:function(){
 	var imageStyle={width:"30px", height:"30px"};
 	var CardStyle={background:'#A7DFF3'}
 	var txtStyle={color:'white'}
+	var txtStyles={color:'Black'}
 	
 
 	// var Avatarstyle = {margin: 5};
@@ -134,13 +139,15 @@ render:function(){
 			);
 	}
 	if(this.state.editBtn==true){
+		console.log("postText"+this.state.postText);
 		return(
 			<div className="EachPostPanel" >
 				<div className="col-sm-8" style={style}>
 				<Paper  zDepth={5} >
 				<Card>
 					<CardHeader style={CardStyle}
-					avatar src="{this.props.pic}" >
+					avatar= "{this.props.pic}" 
+					>
 					<h4 className="pull-right">
 		         			 {/*<span className="glyphicon glyphicon-ok" 
 		         			 		         			 data-toggle="tooltip"
@@ -164,33 +171,15 @@ render:function(){
 		          			</CardHeader>
 		          			<CardText>
 				<div className="message-wrapper" >
-								{/*<form role="form">
-									<div className="form-group">
-										<textarea className="form-control" 
-										rows="5"
-										defaultValue={this.props.postContent}
-										onChange={this.handleTextChange}
-										 id="comment"></textarea>
-									</div>
-								</form>	*/}
-								{// <TextField 
-								// floatingLabelText="Edit your post"
-								// defaultValue={this.props.postContent}
-								// onChange={this.handleTextChange}
-								// multiLine={true}
-								// id={"editPostTextId"}
-								// type={"text"}
-								// rows={3}
-								// onKeyDown ={this.handleEditSave} />
-							}
+								
 								<TextField
 			     floatingLabelText="Edit your Post"
 			      multiLine={true}
 			      style={txtStyle}
-				textareaStyle={txtStyle}
-				// value={this.state.postText}
+				textareaStyle={txtStyles}
+				  value={this.state.postText}
 			      onChange={this.handleTextChange}
-			      defaultValue={this.props.postContent}
+			      // defaultValue={this.props.postContent}
 			      rows={2}
 			      rowsMax={4} 
     			/>
@@ -210,15 +199,18 @@ render:function(){
 		<div className="EachPostPanel" >
 		<div className="col-sm-8" style={style}>
 		
-			<Card showExpandableButton={true}>
-			<Paper  zDepth={3} >
+			<Card>
+			<Paper  zDepth={3}>
 				<CardHeader title="ram has posted"
 				style={CardStyle}
 				subtitle={this.props.postTimekey}
 				avatar="{this.props.pic}"
-				
-				// onClick={this.handlePhoto} 
+				showExpandableButton={true}
+			  actAsExpander={true}
+			  // onTouchTap={this.handlePhoto}
 				>
+				
+				
 					{/*<h4 className="pull-right">
 										<IconButton tooltip="Delete the post!"
 											onClick={this.handleDelete}>
@@ -245,7 +237,7 @@ render:function(){
 		    <img src="image/ic_delete_black_24dp_1x.png"/>
 	  </IconButton>
  	</MenuItem>
-    </IconMenu></h4>
+    </IconMenu></h4> 
 				</CardHeader>
 				 
 				<CardText expandable={true} >

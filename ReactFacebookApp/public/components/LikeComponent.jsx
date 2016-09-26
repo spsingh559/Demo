@@ -7,7 +7,7 @@ var LikeComponent=React.createClass({
 		// console.log("initial State count"+this.props.likeGet.length);
 		//console.log("like compo" + this.props.likeCount);
 		//console.log(this.props.likeCount);
-		return{liked:false,likeCounts:0};
+		return{liked:false,likeCounts:this.props.likeCount};
 		 // console.log("like After"+ this.state.likeCounts );
 	},
 	likeClicked:function(){
@@ -19,22 +19,18 @@ var LikeComponent=React.createClass({
 				this.setState({likeCounts:this.state.likeCounts+1,
 					liked:!this.state.liked });
 			}
-			 // this.props.likePost(this.state.);
 	},
 	render:function(){
-		//console.log(this.props.likeCount);
-		// console.log("like" +this.state.likeCounts);
 		var likedStyle={ backgroundColor:'blue'};
  		// console.log("render " +this.props.likeGet.length);
 		if(this.state.liked==true){
 		return(
-			<Badge badgeContent={this.props.likeCount}
-			// badgeStyle={{top: 20, right: 0}}
+			<Badge badgeContent={this.state.likeCounts}
 			secondary={true}>
 			<IconButton  
 			onClick={this.likeClicked}>
 			<img src="image/ic_thumb_up_black_24dp_1x.png" style={likedStyle}/>
-			  	<span >{''}{this.props.likeCount}</span>
+			  	
 		       	</IconButton>
 		       	</Badge>
 		        	
@@ -43,14 +39,14 @@ var LikeComponent=React.createClass({
 		}
 		else{
 			return(
-			<Badge badgeContent={this.props.likeCount}
+			<Badge badgeContent={this.state.likeCounts}
 			// badgeStyle={{top: 20, right: 0}}
 			// style={{top:20, right:0}}
 			secondary="true" >
 			<IconButton 
 			onClick={this.likeClicked}>
 			<img src="image/ic_thumb_up_black_24dp_1x.png" />
-			  	 <span >{''}{this.props.likeCount} </span>
+			  	 
 			     	</IconButton>
 		     </Badge>
 			);

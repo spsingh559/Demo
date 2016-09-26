@@ -117,7 +117,6 @@
 				picData: [],
 				open: false,
 				message: 'Default message',
-				expanded: false,
 				openDialogue: false
 			};
 		},
@@ -262,8 +261,8 @@
 					null,
 					_react2.default.createElement(
 						_Snackbar2.default,
-						{ open: this.state.open,
-							expanded: this.state.expanded, onExpandChange: this.handleExpandChange
+						{ open: this.state.open
+
 							// autoHideDuration={4000}
 							, message: this.state.message,
 							bodyStyle: sty,
@@ -36843,7 +36842,7 @@
 								React.createElement(
 									_Card.CardHeader,
 									{ style: CardStyle,
-										avatar: true, src: '{this.props.pic}' },
+										avatar: '{this.props.pic}' },
 									React.createElement(
 										'h4',
 										{ className: 'pull-right' },
@@ -36893,7 +36892,7 @@
 						{ className: 'col-sm-8', style: style },
 						React.createElement(
 							_Card.Card,
-							{ showExpandableButton: true },
+							null,
 							React.createElement(
 								_Paper2.default,
 								{ zDepth: 3 },
@@ -36902,9 +36901,9 @@
 									{ title: 'ram has posted',
 										style: CardStyle,
 										subtitle: this.props.postTimekey,
-										avatar: '{this.props.pic}'
-
-										// onClick={this.handlePhoto} 
+										avatar: '{this.props.pic}',
+										showExpandableButton: true,
+										actAsExpander: true
 									},
 									React.createElement(
 										'h4',
@@ -43167,7 +43166,7 @@
 								{ style: cardStyle },
 								React.createElement(_Card.CardHeader, {
 									title: 'Your Post Wall',
-									avatar: true, src: this.props.picDetail }),
+									avatar: '{this.props.picDetail.picture}' }),
 								React.createElement(
 									_Card.CardText,
 									null,

@@ -3,11 +3,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import {Card, CardActions,CardHeader,CardMedia,CardTitle,CardText}
 from 'material-ui/Card'
+import LinearProgress from 'material-ui/LinearProgress';
 import Paper from 'material-ui/Paper';
 
 var PostComponent=React.createClass({
 	getInitialState:function(){
-		return{postText:'', file: '',   imagePreviewUrl: ''};
+		return{postText:'', file: '',   imagePreviewUrl: '',prog:false};
 	},
 	handleTextChange:function(e){
 		this.setState({postText:e.target.value});
@@ -20,6 +21,9 @@ var PostComponent=React.createClass({
    		 }
 		this.props.AfterPost(this.state.postText);
 		this.setState({	postText:""});
+		this.setState({
+			prog:true 
+		});
 	},
 	 _handleImageChange:function(e) {
    			 e.preventDefault();
@@ -37,6 +41,8 @@ var PostComponent=React.createClass({
 		    reader.readAsDataURL(file)
   },
 	render:function(){
+		var progesss=this.state.prog?
+		<LinearProgress mode="indeterminate" />:null;
 		console.log("3");
 		const style = {
   margin: 12,
@@ -56,7 +62,7 @@ let {imagePreviewUrl} = this.state;
 				<Card style={cardStyle}>
 				<CardHeader 
 				title="Your Post Wall"
-				avatar src={this.props.picDetail} ></CardHeader>
+				avatar ="{this.props.picDetail.picture}" ></CardHeader>
 				<CardText>
 				<TextField
 				// inputStyle={txtStyle}
@@ -74,32 +80,11 @@ let {imagePreviewUrl} = this.state;
 				 primary={true} className="pull-right"
 				  style={style} onTouchTap={this.Submit} />
 				 </CardText>
+				 <CardActions>
+				 {progesss}
+				 </CardActions>
 				</Card>
 				</Paper>
-					{/*<form role="form">
-											<div className="form-group">
-												<textarea className="form-control" 
-												rows="5"
-												value={this.state.postText}
-												onChange={this.handleTextChange}
-												 id="comment"></textarea>
-											</div>
-										</form>	*/}
-					{/*<input type="button" 
-					className="btn btn-large btn-primary pull-right" 
-					id="btnAlertTextArea" value="post"
-					onClick={this.Submit} /> */
-				}
-				{/*<TextField floatingLabelText="what's in your mind?"
-				onChange={this.handleTextChange}
-				value={this.state.postText}
-				rows={5}
-				onKeyDown={this.Submit} 
-				id={"comment"}
-				type={"text"}
-				multiLine={true}
-				// type={text} 
-				/> */}
 				
 				</div>							
 			</div>
