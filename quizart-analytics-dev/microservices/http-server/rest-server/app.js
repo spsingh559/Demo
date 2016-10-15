@@ -377,12 +377,13 @@ io.on('connection',function(socket){
       if(response.response !== 'success') { return socket.emit('authentication','failed'); }
       console.log('Subject: ',response.claims.sub);
       playerId = response.claims.sub;
+      console.log("player id is"+playerId);
      
       createPlayerMiddlewareIfNotAlreadyCreated();
 
     });
   });
-  var notificationPlayerId=1001;
+  var notificationPlayerId=1002;
   // var msg='This is notification from'+notificationPlayerId;
   var notificationMiddleware = new notificationMiddlewarePlugin(notificationPlayerId,socket); 
 
@@ -417,37 +418,37 @@ io.on('connection',function(socket){
 
   // Create Lobby Socket Connections ---------------------------------
   socket.on('lobbyPlayerAdd', function(pdata) {
-    console.log('-----------Added ' + pdata.data.NotificationTargetId + '------------');
-    // const seneca = require('seneca');
-    // var playerId=1001;
-    // const chatClient = seneca();
-    // // var msg={msgs: 'Hello'};
-    // var msg={
-    //   id: 0,
-    //   NotificationId: 1,
-    //   NotificationOwnerId: 1001,
-    //   NotificationTargetId: 2000,
-    //   // "NotificationOwnerPic": "./image/notificationOwnerPic.jpg",
-    //   NotificationTitle: "Friend Request",
-    //   NotificationSubTitle: "has send Friend request",
-    //   DateAndTime: "9/16/2016T10:32:40",
-    //   isNotificationActive: "true",
-    //   NotificationStatus: false,
-    //   notificationStatustext: "You have Accepted",
-    //   notificationResultStatus: true
-    // };
-    // // console.log(notificationData);
-    // chatClient.use('redis-transport');
-    // chatClient.client({
-    //   type: 'redis',
-    //   pin: 'role:notification,playerId:'+playerId+'cmd:*',
-    //   host: '172.23.238.251'
-    // });
+    console.log('-----------Added ' + pdata.data.id + '------------');
+    const seneca = require('seneca');
+    var playerId=1002;
+    const chatClient = seneca();
+    // var msg={msgs: 'Hello'};
+    var msg={
+      id: 0,
+      NotificationId: 1,
+      NotificationOwnerId: 1002,
+      NotificationTargetId: 2000,
+      // "NotificationOwnerPic": "./image/notificationOwnerPic.jpg",
+      NotificationTitle: "Friend Request",
+      NotificationSubTitle: "has send Friend request",
+      DateAndTime: "9/16/2016T10:32:40",
+      isNotificationActive: "true",
+      NotificationStatus: false,
+      notificationStatustext: "You have Accepted",
+      notificationResultStatus: true
+    };
+    // console.log(notificationData);
+    chatClient.use('redis-transport');
+    chatClient.client({
+      type: 'redis',
+      pin: 'role:notification,playerId:'+playerId+',cmd:*',
+      host: '172.23.238.251'
+    });
 
-    // chatClient.act('role:notification,playerId:'+playerId+'cmd:receive',{msg: msg}, function(err, response) {
-    //   console.log(response.response);
-    // });
-    // // Redis Connection Here
+    chatClient.act('role:notification,playerId:'+playerId+',cmd:send',{msg: msg}, function(err, response) {
+      console.log(response.response);
+    });
+    // Redis Connection Here
   });
 
   socket.on('lobbyPlayerDelete', function(pdata) {

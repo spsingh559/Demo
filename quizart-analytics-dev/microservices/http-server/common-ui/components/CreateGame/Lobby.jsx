@@ -50,22 +50,10 @@ var Lobby = React.createClass({
 		players.push({'name': newname, 'status': 'waiting for player','user': 'player'});
 
 		// Ajax Post operation here
-		var msgs={
-		      id: 0,
-		      NotificationId: 1,
-		      NotificationOwnerId: 1001,
-		      NotificationTargetId: newname,
-		      // "NotificationOwnerPic": "./image/notificationOwnerPic.jpg",
-		      NotificationTitle: "Friend Request",
-		      NotificationSubTitle: "has send Friend request",
-		      DateAndTime: "9/16/2016T10:32:40",
-		      isNotificationActive: "true",
-		      NotificationStatus: false,
-		      notificationStatustext: "You have Accepted",
-		      notificationResultStatus: true
-		    };
+		var playerId={id:1001};
 
-		this.context.socket.emit('lobbyPlayerAdd', {data: msgs});
+
+		this.context.socket.emit('lobbyPlayerAdd', {data: playerId});
 		this.setState({
             playr: players
         });
