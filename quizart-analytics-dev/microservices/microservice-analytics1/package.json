@@ -1,0 +1,18 @@
+{
+  "name": "microservice-analytics1",
+  "version": "0.1.0",
+  "description": "Analytics Microservice",
+  "main": "analytics-plugin.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node analytics-microservice.js"
+  },
+  "author": "Etukuri Bharath <etukuri.bharath123@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+  	"mongoose": "^4.5.5",
+    "seneca": "^2.1.0",
+    "seneca-balance-client": "^0.5.0",
+    "seneca-mesh": "^0.7.0"
+  }
+}

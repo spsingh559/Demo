@@ -1,0 +1,10 @@
+FROM quizrtsocial/base-image
+WORKDIR /usr/src/service
+
+COPY package.json /usr/src/service
+RUN npm install --production
+
+COPY createLobbyService.js /usr/src/service
+COPY createLobbyPlugin.js /usr/src/service
+
+CMD ["npm","start","--production"]

@@ -1,0 +1,210 @@
+version: '2'
+services:
+  microservice-mesh-base:
+    container_name: microservice-mesh-base
+    build: microservices/microservice-mesh-base
+    image: boilerplate/mesh-base
+    network_mode: host
+    restart: always
+  microservice-accounts:
+    container_name: microservice-accounts
+    build: microservices/microservice-accounts
+    image: boilerplate/accounts
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+    environment:
+      MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  microservice-profile:
+      container_name: microservice-profile
+      build: microservices/microservice-profile
+      image: boilerplate/profile
+      network_mode: host
+      restart: always
+      depends_on:
+        - microservice-mesh-base
+      environment:
+        MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  microservice-friend:
+      container_name: microservice-friend
+      build: microservices/microservice-friend
+      image: boilerplate/friend
+      network_mode: host
+      restart: always
+      depends_on:
+        - microservice-mesh-base
+      environment:
+        MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  microservice-topic:
+      container_name: microservice-topic
+      build: microservices/microservice-topic
+      image: boilerplate/topic
+      network_mode: host
+      restart: always
+      depends_on:
+        - db
+        - microservice-mesh-base
+      environment:
+        MONGO_URL: 'mongodb://localhost:27017/quizRT4'
+  microservice-tournament-section:
+      container_name: microservice-tournament-section
+      build: microservices/tournamentSection
+      image: boilerplate/microservice-tournament-section
+      network_mode: host
+      restart: always
+      depends_on:
+        - microservice-mesh-base
+        - db
+      environment:
+        MONGO_HOST: localhost
+        MONGO_PORT: 27017
+        MONGO_DB_NAME: quizRT4
+  microservice-random-question:
+      container_name: microservice-random-question
+      build: microservices/randomQuestion
+      image: boilerplate/microservice-random-question
+      network_mode: host
+      restart: always
+      depends_on:
+        - db
+        - microservice-mesh-base
+      environment:
+        MONGO_HOST: localhost
+        MONGO_PORT: 27017
+        MONGO_DB_NAME: quizRT4
+  microservice-gameplay:
+      container_name: microservice-gameplay
+      build: microservices/gameplay
+      image: boilerplate/microservice-gameplay
+      network_mode: host
+      restart: always
+      depends_on:
+        - microservice-mesh-base
+        - microservice-random-question
+        - redis
+      environment:
+        REDIS_URL: localhost
+        REDIS_PORT: 6379
+  microservice-leaderboard:
+      container_name: microservice-leaderboard
+      build: microservices/microservice-leaderboard
+      image: boilerplate/microservice-leaderboard
+      network_mode: host
+      restart: always
+      depends_on:
+        - db
+        - microservice-mesh-base
+      environment:
+        MONGO_HOST: localhost
+        MONGO_PORT: 27017
+        MONGO_DB_NAME: quizRT4
+  microservice-jwt:
+    container_name: microservice-jwt
+    build: microservices/microservice-jwt
+    image: boilerplate/jwt
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+  microservice-alltopics:
+    container_name: microservice-alltopics
+    build: microservices/allTopics
+    image: boilerplate/alltopics
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+      - db
+    environment:
+          MONGO_HOST: localhost
+          MONGO_PORT: 27017
+          MONGO_DB_NAME: quizRT4
+  microservice-chatrooms:
+    container_name: microservice-chatrooms
+    build: microservices/microservice-chatrooms
+    image: boilerplate/microservice-chatrooms
+    network_mode: host
+    restart: always
+    depends_on:
+      - db
+      - microservice-mesh-base
+    environment:
+      MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  microservice-timeline:
+    container_name: microservice-timeline
+    build: microservices/microservice-timeline
+    image: boilerplate/microservice-timeline
+    network_mode: host
+    restart: always
+    depends_on:
+      - db
+      - microservice-mesh-base
+    environment:
+      MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  chatservice:
+    container_name: chatservice-container
+    build: chatservice
+    image: boilerplate/chatservice
+    network_mode: host
+    restart: always
+    environment:
+      REDIS_URL: localhost
+      REDIS_PORT: 6379
+  http-server0:
+    container_name: http-server0
+    build: microservices/http-server
+    image: boilerplate/http-server
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+    environment:
+      REDIRECT_HOST: quizart.stackroute.in
+      REDIRECT_PORT: 80
+      PORT: 8001
+      NAME: Westeros
+  http-server1:
+    container_name: http-server1
+    image: boilerplate/http-server
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+      - http-server0
+    environment:
+      REDIRECT_HOST: quizart.stackroute.in
+      REDIRECT_PORT: 80
+      PORT: 8002
+      NAME: Beyond the wall
+  http-server2:
+    container_name: http-server2
+    image: boilerplate/http-server
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+      - http-server0
+    environment:
+      REDIRECT_HOST: quizart.stackroute.in
+      REDIRECT_PORT: 80
+      PORT: 8003
+      NAME: Kings Landing
+  db:
+    container_name: mongo
+    image: mvertes/alpine-mongo
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+  redis:
+    container_name: redis
+    image: smebberson/alpine-redis
+    restart: always
+    expose:
+      - 6379
+    ports:
+      - 6379:6379

@@ -1,0 +1,1000 @@
+  299  cd ..
+  300  npm run build
+  301  ls
+  302  cd common-ui/
+  303  ls
+  304  pwd
+  305  less app.jsx 
+  306  ls
+  307  cd
+  308  ls
+  309  docker ls
+  310  docker-machine 
+  311  docker-machine ls
+  312  docker-machine create -d virtualbox default
+  313  create
+  314  clear
+  315  lsb_release -a
+  316  sudo apt-get update
+  317  sudo apt-get install -f
+  318  ls /etc/apt/sources.list.d/
+  319  less /etc/apt/sources.list.d/download_virtualbox_org_virtualbox_debian.list 
+  320  sudo less /etc/apt/sources.list.d/download_virtualbox_org_virtualbox_debian.list 
+  321  sudo apt-get install virtualbox
+  322  virtualbox --virsion
+  323  docker-machine create -d virtualbox default
+  324  virtualbox --virsion
+  325  virtualbox v
+  326  virtualbox 
+  327  free -m
+  328  virtualbox -v
+  329  docker-machine create -d virtualbox default
+  330  sudo apt-get remove virtualbox virtualbox-4.* virtualbox-5.0
+  331  sudo apt-get autoremove
+  332  sudo apt-get autoclean
+  333  sudo apt-get install virtualbox-5.x
+  334  sudo apt-get install virtualbox-5.0
+  335  sudo apt-get install virtualbox-5.1
+  336  ls
+  337  wget virtualbox-5.1_5.1.0-108711-Ubuntu-trusty_amd64.deb
+  338  sudo apt-get remove docker-machine
+  339  clear
+  340  cd quizart7/
+  341  cd quizart-social/
+  342  ls
+  343  cd base-image/
+  344  ls
+  345  docker build -t quizrtsocial/base-image .
+  346  ls
+  347  less Dockerfile 
+  348  docker ps -a
+  349  ls
+  350  sudo docker build -t quizrtsocial/base-image .
+  351  cd ..
+  352  ls
+  353  cd base-image/
+  354  ls
+  355  cd ..
+  356  docker-compose up -d
+  357  docker ps
+  358  docker ps -a
+  359  docker images
+  360  clear
+  361  ls
+  362  ls -ltr
+  363  ls
+  364  cd base-image/
+  365  ls -la
+  366  sudo docker build -t quizrtsocial/base-image .
+  367  cd ..
+  368  sudo docker-compose up -d
+  369  docker-machine ip
+  370  sudo docker-machine ip
+  371  docker-machine
+  372  sudo docker-compose up -d
+  373  docker-machine ls
+  374  sudo docker-machine ls
+  375  cd microservices/http-server/
+  376  npm install
+  377  npm run build
+  378  cd ../..
+  379  ls
+  380  cd base-image/
+  381  ls
+  382  sudo docker build -t quizrtsocial/base-image .
+  383  docker-machine ip
+  384  cd ..
+  385  docker-compose up -d
+  386  sudo docker-compose up -d
+  387  sudo docker-machine ip
+  388  sudo docker-machine ls
+  389  docker images
+  390  docker-compose 
+  391  docker-compose events
+  392  sudo docker-compose events
+  393  sudo docker-compose ps
+  394  sudo docker-compose ps -a
+  395  sudo docker-compose ip
+  396  sudo docker-machine ip
+  397  sudo docker-compose ps 
+  398  netstat -tulp
+  399  curl localhost:8001
+  400  docker-machine ls
+  401  docker-machine create -d virtualbox default
+  402  clear
+  403  sudo docker-machine create -d virtualbox default
+  404  clear
+  405  docker-compose ps
+  406  sudo docker-compose ps
+  407  docker-compose
+  408  sudo docker-compose events
+  409  ls
+  410  sudo docker-compose logs
+  411  netstat -tulp
+  412  free -m
+  413  sudo docker-compose ps
+  414  ls
+  415  less docker-compose.yml 
+  416  sudo docker-compose ps
+  417  free -m
+  418  docker-machine 
+  419  clear
+  420  sudo docker-compose ps
+  421  curl localhost:8001
+  422  sudo /etc/init.d/nginx status
+  423  sudo nano /etc/nginx/sites-available/default 
+  424  cd /etc/nginx/
+  425  ls
+  426  sudo nano sites-available/quizart7
+  427  sudo ln -s sites-available/quizart7 sites-enabled/quizart7
+  428  sudo rm sites-available/default 
+  429  sudo /etc/init.d/nginx restart
+  430  ls
+  431  ls sites-available/
+  432  sudo less sites-available/quizart7y 
+  433  sudo rm sites-available/quizart7y 
+  434  curl localhost
+  435  curl localhost:8001
+  436  sudo /etc/init.d/nginx restart
+  437  sudo vim sites-available/quizart7 
+  438  sudo /etc/init.d/nginx restart
+  439  curl localhost:8001
+  440  curl localhost
+  441  cd
+  442  clear
+  443  ls
+  444  cd quizart7/
+  445  ls
+  446  exit
+  447  ls
+  448  sudo /etc/init.d/nginx status
+  449  curl localhost
+  450  curl localhost:8001
+  451  curl localhost:8002
+  452  curl localhost:8003
+  453  sudo less /etc/nginx/sites-available/quizart7 
+  454  exit
+  455  sudo vim /etc/nginx/sites-available/quizart7 
+  456  sudo /etc/init.d/nginx restart
+  457  curl http://localhost:8001
+  458  curl http://localhost
+  459  curl http://localhost:8001
+  460  curl http://localhost
+  461  sudo docker-compose ps
+  462  sudo docker ps 
+  463  free -m
+  464  sudo vim /etc/nginx/sites-available/quizart7 
+  465  cd quizart7/quizart-social/
+  466  ls
+  467  vim docker-compose.yml 
+  468  ls
+  469  sudo vim /etc/nginx/sites-available/quizart7 
+  470  sudo /etc/init.d/nginx status
+  471  sudo /etc/init.d/nginx restart
+  472  curl localhost
+  473  sudo netstat -tulpn
+  474  sudo mv /etc/nginx/sites-available/quizart7 /etc/nginx/sites-available/default
+  475  ls -ls /etc/nginx/sites-enabled/
+  476  sudo rm -f /etc/nginx/sites-enabled/quizart7 
+  477  sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+  478  sudo lnginx/sites-enabled/
+  479  sudo mv /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default.back
+  480  sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+  481  ls -ls /etc/nginx/sites-enabled/
+  482  sudo /etc/init.d/nginx restart
+  483  curl localhost
+  484  clear
+  485  curl localhost
+  486  curl localhost:8001
+  487  sudo docker-compose ps
+  488  sudo docker ps
+  489  ls
+  490  sudo vim /etc/nginx/sites-available/default 
+  491  curl 127.0.0.1
+  492  sudo /etc/init.d/nginx stop
+  493  curl localhost
+  494  curl localhost:8001
+  495  ls
+  496  vim docker-compose.yml 
+  497  sudo docker-compose stop
+  498  curl localhost:8001
+  499  curl localhost
+  500  sudo /etc/init.d/nginx start
+  501  curl localhost
+  502  sudo /etc/init.d/nginx status
+  503  sudo /etc/init.d/nginx start
+  504  sudo /etc/init.d/nginx status
+  505  sudo vim /etc/nginx/sites-available/default 
+  506  sudo apt-get remove nginx
+  507  sudo apt-get autoremove
+  508  sudo apt-get autoclean
+  509  sudo rm -rf /etc/init.d/nginx 
+  510  sudo apt-get install nginx -y
+  511  exit
+  512  sudo apt-get remove nginx -y
+  513  sudo apt-get autoremove
+  514  sudo apt-get autoclean
+  515  sudo apt-get update
+  516  which nginx
+  517  exit
+  518  which nginx
+  519  sudo service nginx status
+  520  sudo apt-get install nginx
+  521  cd /etc/nginx/
+  522  ls
+  523  less nginx.conf 
+  524  cd
+  525  sudo apt-get autoremove nginx
+  526  sudo apt-get --purge remove nginx
+  527  sudo apt-get autoremove && sudo apt-get autoclean
+  528  sudo find / | grep nginx | sudo xargs rm -rf
+  529  sudo add-apt-repository ppa:nginx/stable
+  530  clear
+  531  sudo apt-get update && sudo apt-get -f install nginx
+  532  whereis nginx
+  533  sudo dpkg -l | grep nginx
+  534  sudo service nginx status
+  535  curl localhost
+  536  curl localhost:8001
+  537  curl localhost
+  538  sudo less /etc/nginx/nginx.conf 
+  539  sudo less /etc/nginx/sites-available/default 
+  540  sudo service nginx status
+  541  sudo service nginx restart
+  542  sudo service nginx status
+  543  curl localhost
+  544  sudo vim /etc/nginx/sites-available/default 
+  545  sudo service nginx restart
+  546  curl localhost:81
+  547  sudo vim /etc/nginx/sites-available/default 
+  548  sudo service nginx restart
+  549  sudo service nginx status
+  550  sudo netstat -tulpn
+  551  curl localhost
+  552  cd quizart7/quizart-social/
+  553  sudo docker-compose up -d
+  554  sudo docker-compose ps
+  555  curl localhost
+  556  curl localhost:8001
+  557  curl localhost
+  558  curl 127.0.0.1
+  559  curl -I 127.0.0.1
+  560  netstat -tulpn : grep 80
+  561  curl http://localhost
+  562  curl https://localhost
+  563  cd /var/www/html/
+  564  ls
+  565  less index.nginx-debian.html 
+  566  sudo /etc/init.d/nginx status
+  567  curl localhost
+  568  sudo less /etc/nginx/sites-available/default 
+  569  curl localhost
+  570  curl 127.0.0.1
+  571  sudo nmap-sS -0 127.0.0.1
+  572  sudo nmap -sS -0 127.0.0.1
+  573  netstat -tulpn
+  574  ls
+  575  ls -l
+  576  date
+  577  cd
+  578  sudo less /etc/nginx/nginx.conf 
+  579  sudo less /etc/nginx/sites-available/default 
+  580  sudo /etc/init.d/nginx status
+  581  sudo /etc/init.d/nginx restart
+  582  exit
+  583  curl localhost
+  584  curl localhost:8001
+  585  netstat -tulp
+  586  sudo less /etc/nginx/sites-available/default 
+  587  docker-compose 
+  588  history 
+  589  exit
+  590  vim /etc/nginx/sites-available/default
+  591  sudo service nginx restart
+  592  curl -X GET http://localhost
+  593  service nginx stop
+  594  sudo service nginx stop
+  595  sudo service nginx status
+  596  service nginx start
+  597  sudo service nginx start
+  598  tail -f /var/log/nginx/access.log
+  599  tail -f /var/log/nginx/error.log
+  600  vim /etc/hosts
+  601  ping 127.0.0.1
+  602  curl -X http://localhost
+  603  curl -X GET http://localhost
+  604  vim /etc/hosts
+  605  curl --ipv4 http://localhost
+  606  python sm SimpleHTTPServer &
+  607  python -m SimpleHTTPServer &
+  608  bg
+  609  jobs
+  610  curl -X http://localhost:8001
+  611  curl -X http://localhost:8000
+  612  curl -X GET http://localhost:8000
+  613  fg
+  614  sudo python -m SimpleHTTPServer 80 &
+  615  curl -X GET http://localhost
+  616  sudo aptitude --purge remove nginx
+  617  aptitude show nginx
+  618  sudo aptitude show nginx
+  619  sudo aptitude install nginx
+  620  sudo service nginx status
+  621  curl -X GET http://localhost
+  622  fg
+  623  sudo service nginx restart
+  624  curl -X GET http://localhost
+  625  sudo vim /etc/nginx/sites-available/default
+  626  curl -X http://localhost:8001
+  627  curl -X GET http://localhost:8001
+  628  sudo vim /etc/nginx/nginx.conf
+  629  sudo vim /etc/nginx/sites-available
+  630  sudo vim /etc/nginx/sites-available/default
+  631  sudo service nginx restart
+  632  sudo vim /etc/nginx/sites-available/default
+  633  sudo service nginx restart
+  634  sudo vim /etc/nginx/sites-available/default
+  635  sudo service nginx restart
+  636  sudo vim /etc/nginx/sites-available/default
+  637  sudo service nginx restart
+  638  curl -X GET http://localhost:8001
+  639  sudo vim /etc/nginx/sites-enabled/default
+  640  sudo service nginx restart
+  641  sudo vim /etc/nginx/sites-enabled/default
+  642  sudo service nginx restart
+  643  sudo vim /etc/nginx/sites-enabled/default
+  644  sudo server nginx restart
+  645  sudo vim /etc/nginx/sites-enabled/default
+  646  sudo service nginx restart
+  647  ls
+  648  clear
+  649  ls
+  650  sudo docker images
+  651  ls -l
+  652  cd quizart-social/
+  653  ls -l
+  654  git branch
+  655  git pull origin dev
+  656  git status
+  657  git checkout -A
+  658  git status
+  659  git checkout microservices/http-server/common-ui/app.jsx
+  660  git checkout microservices/http-server
+  661  git status
+  662  git add -A
+  663  git stash
+  664  git status
+  665  rm question-manager -rf
+  666  git pull origin dev
+  667  git status
+  668  sudo docker images
+  669  vim docker-compose.yml
+  670  git status
+  671  vim microservices/http-server/rest-server/app.js
+  672  cd microservices/http-server/
+  673  npm install --production
+  674  npm install
+  675  vim rest-server/api/auth/twitter.auth.controller.js
+  676  vim rest-server/api/auth/twitter.auth.config.js
+  677  cd quizart-social/
+  678  vim microservices/http-server/rest-server/api/auth/twitter.auth.controller.js
+  679  vim microservices/http-server/rest-server/api/auth/twitter.auth.config.js
+  680  cd microservices/http-server/
+  681  npm install
+  682  ls -l
+  683  npm run build
+  684  mv common-ui/views/allTopics/alltopics.jsx common-ui/views/allTopics.jsx
+  685  mv common-ui/views/SignUp common-ui/views/SignUP
+  686  npm run build
+  687  ls common-ui/views/allTopics/
+  688  git status
+  689  git checkout common-ui/views/allTopics/alltopics.jsx
+  690  git status
+  691  rm rest-server/api/auth/.twitter.auth.config.js.swp
+  692  git status
+  693  mv common-ui/views/allTopics/alltopics.jsx common-ui/views/allTopics/allTopics.jsx
+  694  npm run build
+  695  cd ../../
+  696  ls -l
+  697  vim docker-compose.yml
+  698  sudo docker-compose up -d --build --remove-orphans
+  699  sudo docker-compose up -d --build
+  700  sudo docker-compose up -d --build --remove-orphans --force-recreate
+  701  udo su -
+  702  sudo su -
+  703  sudo docker-compose up -d --build
+  704  ls -l
+  705  vim docker-compose.yml
+  706  ls -l
+  707  sudo docker-compose up -d
+  708  sudo docker-compose up --build
+  709  sudo docker-compose up -d
+  710  sudo su -
+  711  cd base-image/
+  712  ls -l
+  713  vim ../microservices/http-server/Dockerfile
+  714  sudo docker build -t quizrtsocial/base-image .
+  715  sudo docker ps -a
+  716  cd ../
+  717  sudo docker-compose up -d
+  718  mongorestore
+  719  sudo aptitude install mongodb-clients
+  720  mongorestore
+  721  mongo
+  722  mongorestore
+  723  ls -l
+  724  mongo
+  725  mongorestore
+  726  mongo
+  727  mongorestore
+  728  show dbs
+  729  mongo
+  730  sudo docker-compose down
+  731  sudo docker-compose up
+  732  sudo docker-compose up -d
+  733  mongo
+  734  show dbs;
+  735  mongo
+  736  sudo docker ps -a
+  737  cd ../
+  738  ls -l
+  739  unzip dump
+  740  mongorestore
+  741  smongo
+  742  mongo
+  743  sudo docker-compose down
+  744  cd quizart-social
+  745  sudo docker-compose down
+  746  sudo docker-compose up -d
+  747  cd ../
+  748  mongorestore
+  749  sudo npm install -g  json-server@0.8.15
+  750  json-server
+  751  ls
+  752  mongo
+  753  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+  754  echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+  755  sudo apt-get update
+  756  sudo apt-get install -y mongodb-org=3.2.8 mongodb-org-server=3.2.8 mongodb-org-shell=3.2.8 mongodb-org-mongos=3.2.8 mongodb-org-tools=3.2.8
+  757  mongo
+  758  mongorestore dump
+  759  mongo
+  760  cd quizart
+  761  ls
+  762  clear
+  763  sudo vim /etc/nginx/sites-available/default 
+  764  cd quizart-social/
+  765  ls
+  766  ls -ltr
+  767  vim docker-compose.yml 
+  768  sudo docker ps -a
+  769  ls
+  770  sudo docker-compose up -d --build --remove-orphans
+  771  ls
+  772  docker-compose up -d --build --remove-orphans
+  773  sudo docker-compose up -d --build --remove-orphans
+  774  sudo docker ps -a
+  775  docker-compose stop
+  776  sudo docker-compose stop
+  777  sudo docker-compose up -d --build --remove-orphans
+  778  sudo docker-compose up -d
+  779  sudo docker ps -a
+  780  vim docker-compose.yml 
+  781  sudo docker ps -a
+  782  sudo docker-compose stop
+  783  clear
+  784  sudo docker ps -a
+  785  sudo docker-compose up -d
+  786  vim docker-compose.yml 
+  787  sudo docker-compose up -d --remove-orphans
+  788  sudo docker-compose up -d --remove-orphans --force-recreate
+  789  sudo docker-compose down
+  790  sudo docker-compose ps
+  791  sudo docker-compose up -d 
+  792  sudo docker-compose ps
+  793  sudo docker ps -a
+  794  sudo docker-compose down
+  795  sudo docker ps -a
+  796  docker ps -a -q
+  797  sudo docker stop http-server0
+  798  sudo docker stop 9f107f99fdbd
+  799  sudo docker ps -a
+  800  sudo docker stop 9f107f99fdbd
+  801  sudo docker rm 9f107f99fdbd
+  802  sodu docker-compose up -d --build
+  803  ls
+  804  sudo docker-compose up -d --build
+  805  sudo docker-compose up -d --build --remove-orphans
+  806  sudo docker-compose up -d
+  807  docker ps -a
+  808  sudo docker ps -a
+  809  docker ps -a
+  810  sudo vim /etc/nginx/sites-available/default
+  811  sudo service nginx restart
+  812  mongorestore
+  813  vim docker-compose.yml
+  814  docker-compose up -d
+  815  sudo docker-compose up -d
+  816  vim /etc/nginx/sites-available/default
+  817  git pull
+  818  vim 2~microservices/http-server/rest-server/api/auth/twitter.auth.config.js
+  819  vim microservices/http-server/rest-server/api/auth/twitter.auth.config.js
+  820  git status
+  821  git add -A
+  822  git status
+  823  git pull
+  824  git status
+  825  git --config user.name "Sagar Patke"
+  826  git config --set user.name "Sagar Patke"
+  827  git config --global user.name "Sagar Patke"
+  828  git config --global user.email "sagarpatke@gmail.com"
+  829  git status
+  830  git commit -m "Deployment Changes"
+  831  git status
+  832  git pull
+  833  git status
+  834  vim docker-compose
+  835  vim docker-compose.yml
+  836  vim microservices/http-server/rest-server/api/auth/twitter.auth.config.js
+  837  vim microservices/http-server/rest-server/api/auth/twitter.auth.controller.js
+  838  git status
+  839  git add -A
+  840  git status
+  841  cd microservices/http-server/
+  842  npm run build
+  843  vim /home/ubuntu/quizart-social/microservices/http-server/common-ui
+  844  vim /home/ubuntu/quizart-social/microservices/http-server/common-ui/app.jsx
+  845  mv common-ui/views/SignUP/ common-ui/views/SignUp
+  846  npm run build
+  847  cd ../../
+  848  sudo docker-compose up -d --build
+  849  cd dump
+  850  ls
+  851  cd ../
+  852  sudo docker-compose up -d --build
+  853  sudo docker-compose up -d --build --force-recreate
+  854  sudo su -
+  855  sudo docker ps -a
+  856  sudo docker-compose up
+  857  vim docker-compose.yml
+  858  sudo docker-compose up
+  859  vim docker-compose.yml
+  860  sudo docker-compose up
+  861  git status
+  862  git checkout docker-compose.yml
+  863  docker-compose up -d --build
+  864  docker ps -a
+  865  sudo docker ps -a
+  866  sudo docker-compose up
+  867  vim docker-compose.yml
+  868  sudo docker-compose up
+  869  vim docker-compose.yml
+  870  sudo docker-compose up
+  871  sudo docker-compose up --build --remove-orphans
+  872  docker-compose down
+  873  sudo docker-compose down
+  874  sudo docker-compose up --build
+  875  sudo docker-compose up --build --force-recreate
+  876  sudo docker-compose up -d
+  877  sudo docker ps -a
+  878  mongorestore
+  879  sudo docker-compose down
+  880  sudo docker-compose up -d --build
+  881  sudo docker-compose up --remove-orphans
+  882  man docker-compose
+  883  whereis docker-compose
+  884  sudo rm /usr/local/bin/docker-compose 
+  885  curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > docker-compose
+  886  chmod +x docker-compose
+  887  sudo mv docker-compose /usr/local/bin -v
+  888  sudo docker-compose up -d --build
+  889  df -hT
+  890  ls
+  891  du -sh
+  892  cd ..
+  893  ls
+  894  du -sh
+  895  cd /temp
+  896  cd /tmp
+  897  ls
+  898  du -sh
+  899  sudo rm -rf *
+  900  ls
+  901  cd
+  902  clear
+  903  df -hT
+  904  ls
+  905  ls -ltr
+  906  rm -rf quizart7
+  907  df -hT
+  908  cd quizart-social/
+  909  ls
+  910  du -sh
+  911  pwd
+  912  du -sh dump
+  913  ls
+  914  cd
+  915  ls
+  916  df -hT
+  917  cd ..
+  918  ls
+  919  cd ubuntu/
+  920  ls
+  921  cd
+  922  cd /
+  923  ls
+  924  cd tmp/
+  925  ls
+  926  cd ..
+  927  cd /home
+  928  cd ubuntu/
+  929  ls
+  930  du -sh
+  931  du -sh dump
+  932  du -sh dump.zip 
+  933  pwd
+  934  du -sh
+  935  cd /
+  936  ls
+  937  cd etc
+  938  du -sh
+  939  cd ..
+  940  cd opt
+  941  du -sh
+  942  cd
+  943  cd /etc/
+  944  cd 
+  945  du sh quizart-social/
+  946  du -sh quizart-social/
+  947  cd /var/log/
+  948  ls
+  949  du -sh
+  950  sudo docker images
+  951  sudo docker images -a
+  952  sudo su -
+  953  df
+  954  df -h
+  955  cd
+  956  cd quizart-social/
+  957  docker-compose up -d
+  958  sudo docker-compose up -d
+  959  cd base-image/
+  960  docker build -t quizrtsocial/base-image .
+  961  sudo docker build -t quizrtsocial/base-image .
+  962  df -hT
+  963  cd ..
+  964  sudo docker-compose up -d
+  965  ls
+  966  mongorestore
+  967  sudo docker ps -a
+  968  df -hT
+  969  cd /tmp/
+  970  ls
+  971  cd ..
+  972  cd
+  973  ls
+  974  df
+  975  cd quizart-social/
+  976  git status
+  977  git ahh -A
+  978  git add -A
+  979  git status
+  980  git commit -m "Deployment Changes"
+  981  git branch
+  982  git push origin dev
+  983  df -h
+  984  sudo docker ps -a
+  985  docker logs 380e8983359f
+  986  sudo docker logs 380e8983359f
+  987  df -hT
+  988  sudo docker images
+  989  df -hT
+  990  free -m
+  991  ls
+  992  docker logs 1338651ba0d2
+  993  sudo docker logs 1338651ba0d2
+  994  docker ps -a
+  995  sudo docker ps -a
+  996  sudo docker logs 2259dba080ab
+  997  docker ps -a
+  998  sudo docker ps -a
+  999  vim docker-compose.yml 
+ 1000  cp docker-compose.yml docker-compose.yml.back
+ 1001  vim docker-compose.yml 
+ 1002  ls
+ 1003  df -hT
+ 1004  cd /var/cache/
+ 1005  ls
+ 1006  du -sh
+ 1007  sudo apt-cache clean
+ 1008  cd apt
+ 1009  ls
+ 1010  du -sh
+ 1011  ls -lh
+ 1012  cd archives/
+ 1013  ls
+ 1014  du -sh
+ 1015  sudo rm -rf *
+ 1016  du -sh
+ 1017  cd ..
+ 1018  du -sh
+ 1019  df -hT
+ 1020  cd
+ 1021  cd quizart-social/
+ 1022  git pull
+ 1023  df -hT
+ 1024  sudo docker-compose up -d 
+ 1025  df -hT
+ 1026  sudo docker ps -a
+ 1027  df -hT
+ 1028  free -m
+ 1029  sudo docker ps -a
+ 1030  sudo docker logs 2259dba080ab
+ 1031  sudo docker logs 2259dba080ab | more
+ 1032  docker ps -a
+ 1033  sudo docker ps -a
+ 1034  df -hT
+ 1035  exit
+ 1036  df -hT
+ 1037  sudo fdisk -l
+ 1038  df -ht
+ 1039  ls
+ 1040  mkdir /data
+ 1041  sudo mkdir /data
+ 1042  ls /data/
+ 1043  cd quizart-social/
+ 1044  ls
+ 1045  sudo docker-compose down
+ 1046  df -hT
+ 1047  free -m
+ 1048  clear
+ 1049  ls
+ 1050  sudo fdisk -l
+ 1051  sudo mount /dev/xvdf1 /data
+ 1052  df -hT
+ 1053  sudo umount /dev/xvdf1 /data
+ 1054  df
+ 1055  clear
+ 1056  sudo fdisk -l
+ 1057  sudo mount /dev/xvdf /data
+ 1058  clear
+ 1059  sudo fdisk -l
+ 1060  df -hT
+ 1061  sudo cfdisk -l
+ 1062  sudo cfdisk 
+ 1063  sudo cfdisk -v
+ 1064  clear
+ 1065  sudo fdisk -l
+ 1066  df -hT
+ 1067  cd
+ 1068  sudo init 6
+ 1069  df -hT
+ 1070  clear
+ 1071  df -hT
+ 1072  sudo fdisk -l
+ 1073  sudo mount /dev/xvdf1 /data
+ 1074  df -hT
+ 1075  cd /data/
+ 1076  ls
+ 1077  ls -l
+ 1078  ls
+ 1079  cd
+ 1080  ls
+ 1081  ls -l /
+ 1082  df -hT
+ 1083  sudo vim /etc/fstab
+ 1084  df -hT
+ 1085  cd /var/lib/docker/
+ 1086  ls
+ 1087  du -sh
+ 1088  sudo du -sh
+ 1089  su -
+ 1090  sudo - su
+ 1091  sudo su
+ 1092  exit
+ 1093  df
+ 1094  cd /data/docker/
+ 1095  ls
+ 1096  sudo ls
+ 1097  pwd
+ 1098  sudo su
+ 1099  cd
+ 1100  cd quizart-social/
+ 1101  ls
+ 1102  sudo docker-compose up -d
+ 1103  less docker-compose.yml
+ 1104  sudo docker images
+ 1105  netstat -tulp | grep 27017
+ 1106  sudo netstat -tulp | grep 27017
+ 1107  sudo kill -9 15803
+ 1108  sudo netstat -tulp | grep 27017
+ 1109  sudo service mongod status
+ 1110  sudo service mongod stop
+ 1111  sudo docker ps -a
+ 1112  sudo netstat -tulp | grep 27017
+ 1113  sudo docker ps -a
+ 1114  mongorestore 
+ 1115  sudo docker ps -a
+ 1116  sudo docker logs 3b1e268fd3b3
+ 1117  sudo service nginx status
+ 1118  sudo service nginx restart
+ 1119  sudo netstat -tulpn | grep 8001
+ 1120  sudo netstat -tulpn | grep 8002
+ 1121  sudo netstat -tulpn | grep 8003
+ 1122  sudo ps aux | grep 16801
+ 1123  sudo netstat -tulpn
+ 1124  sudo less /etc/nginx/sites-available/default 
+ 1125  less docker-compose.yml
+ 1126  sudo docker ps -a
+ 1127  mongo
+ 1128  sudo docker ps -a
+ 1129  sudo docker logs 3b1e268fd3b3
+ 1130  sudo netstat -yulpn | grep 8001
+ 1131  sudo netstat -tulpn | grep 8001
+ 1132  sudo kill -9 16801
+ 1133  sudo docker ps -a -q
+ 1134  sudo docker ps -a
+ 1135  sudo docker-compose up -d
+ 1136  sudo docker ps -a
+ 1137  sudo docker logs 3b1e268fd3b3
+ 1138  less docker-compose.yml
+ 1139  sudo su
+ 1140  df -hT
+ 1141  sudo docke ps -a
+ 1142  sudo docker ps -a
+ 1143  sudo docker-compose down
+ 1144  docker ps -a
+ 1145  sudo docker ps -a
+ 1146  sudo docker ps -a -q
+ 1147  sudo docker ps -a
+ 1148  sudo docker images
+ 1149  vim microservices/http-server/rest-server/app.js
+ 1150  vim microservices/http-server/bin/www
+ 1151  vim microservices/http-server/rest-server/config/index.js
+ 1152  vim microservices/http-server/rest-server/config/environment/production.js
+ 1153  sudo docker-compose up -d --build
+ 1154  docker ps -a
+ 1155  sudo docker ps -a
+ 1156  mongo
+ 1157  mongorestore 
+ 1158  mongo
+ 1159  sudo docker ps -a
+ 1160  free -m
+ 1161  df -hT
+ 1162  sudo docker images
+ 1163  sudo docker ps -a
+ 1164  sudo docker logs 54a7d3ff45b5
+ 1165  vim microservices/http-server/Dockerfile
+ 1166  sudo docker-compose up -d --build
+ 1167  sudo docker ps -a
+ 1168  sudo docker logs 6b1fa03a2551
+ 1169  sudo docker ps -a
+ 1170  vim docker-compose.yml
+ 1171  sudo docker ps -a
+ 1172  vim docker-compose.yml
+ 1173  vim microservices/http-server/Dockerfile
+ 1174  sudo docker-compose up -d --build
+ 1175  sudo docker ps -a
+ 1176  sudo docker logs b4239368095a
+ 1177  vim microservices/http-server/rest-server/config/environment/production.js
+ 1178  sudo docker-compose up -d --build
+ 1179  sudo docker ps -a
+ 1180  git pull
+ 1181  date
+ 1182  sudo ls -s /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1183  date
+ 1184  sudo ls -f /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1185  date
+ 1186  sudo ln -f /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1187  date
+ 1188  sudo ln -s /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1189  sudo ln -f /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1190  date
+ 1191  sudo ln -fs /usr/share/zoneinfo/Asia/Calcutta /etc/localtime 
+ 1192  date
+ 1193  clear
+ 1194  ls
+ 1195  date
+ 1196  sudo docker ps -a
+ 1197  date
+ 1198  df -hT
+ 1199  sudo vim /etc/fstab
+ 1200  df -hT
+ 1201  sudo fdisk -l
+ 1202  ls -l /dev/xvdf1
+ 1203  clear
+ 1204  sudo less /etc/nginx/sites-available/default 
+ 1205  sudo docker ps -a
+ 1206  free -m
+ 1207  df -hT
+ 1208  exit
+ 1209  df -hT
+ 1210  sudo fdisk -l
+ 1211  sudo mount /dev/xvdf1 /data
+ 1212  cd /data/
+ 1213  ls
+ 1214  df -hT
+ 1215  mkdir -p docker/images
+ 1216  sudo mkdir -p docker/images
+ 1217  ls -l /data/
+ 1218  ls -l /data/docker/images/
+ 1219  cd
+ 1220  ls
+ 1221  sudo service docker status
+ 1222  sudo service docker stop
+ 1223  ps faux
+ 1224  sudo docker images
+ 1225  sudo su
+ 1226  sudo docker-compose up -d
+ 1227  cd quizart-social/
+ 1228  sudo docker-compose up -d
+ 1229  ls /var/lib/docker
+ 1230  sudo ls /var/lib/docker
+ 1231  df -hT
+ 1232  sudo su
+ 1233  sudo docker-compose up -d
+ 1234  sudo docker ps -a
+ 1235  sudo docker images
+ 1236  ls -l /var/lib/docker
+ 1237  ls -l
+ 1238  df
+ 1239  sudo docker images
+ 1240  less docker-compose.yml
+ 1241  sudo service docker status
+ 1242  sudo service docker restart
+ 1243  sudo docker images
+ 1244  sudo docker-compose up -d
+ 1245  cd base-image/
+ 1246  ls
+ 1247  sudo docker -t quizrtsocial/base-image .
+ 1248  sudo docker build -t quizrtsocial/base-image .
+ 1249  cd ..
+ 1250  sudo docker-compose up -d
+ 1251  sudo docker images
+ 1252  df -hT
+ 1253  cd /data/docker/
+ 1254  ls
+ 1255  sudo ls
+ 1256  sudo su
+ 1257  df -hT
+ 1258  sudo su
+ 1259  sudo docker ps -a
+ 1260  cd
+ 1261  cd quizart-social/
+ 1262  less docker-compose.yml
+ 1263  sudo docker-compose up -d
+ 1264  ls
+ 1265  df -hT
+ 1266  sudo docker-compose up -d --build --remove-orphans
+ 1267  vim docker-compose.yml
+ 1268  sudo service mongod status
+ 1269  sudo service mongod restart
+ 1270  ls
+ 1271  mongorestore 
+ 1272  sudo docker images
+ 1273  sudo docker ps -a
+ 1274  sudo docker start 3984f52db695
+ 1275  sudo docker-compose down
+ 1276  sudo docker images
+ 1277  sudo docker ps -a
+ 1278  sudo docker rmi 7f179837fed9
+ 1279  sudo docker images
+ 1280  sudo docker-compose up -d --build --remove-orphans
+ 1281  sudo su
+ 1282  df -hT
+ 1283  sudo blkid /dev/xvdf1
+ 1284  sudo blkid /dev/xvda1
+ 1285  sudo blkid /dev/xvda
+ 1286  less /etc/fstab
+ 1287  sudo fdisk -l
+ 1288  clear
+ 1289  sudo blkid /dev/xvda
+ 1290  sudo blkid /dev/xvda1
+ 1291  sudo blkid /dev/xvdf1
+ 1292  sudo fdisk -l
+ 1293  sudo lvs
+ 1294  sudo lvdisplay
+ 1295  cd quizart-social/
+ 1296  ls
+ 1297  history
+ 1298  history > history_22072016.txt
