@@ -19,7 +19,7 @@ notificationServer.add('role:notification,playerId:'+playerId+',cmd:send',functi
   console.log("Inside Subscriber");
   // socket.emit('NoticeSent','success');
 
-  return callback(null,{response: '%%%%%%%%%%%%%%%%%%%notification received on server'});
+  return callback(null,{response: 'notification sent  to player'+playerId});
 });
 
 notificationServer.use('redis-transport');

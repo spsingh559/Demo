@@ -419,7 +419,6 @@ io.on('connection',function(socket){
   // Create Lobby Socket Connections ---------------------------------
   socket.on('lobbyPlayerAdd', function(pdata) {
     console.log('-----------Added ' + pdata.data.id + '------------');
-    const seneca = require('seneca');
     var playerId=1002;
     const chatClient = seneca();
     // var msg={msgs: 'Hello'};
@@ -446,7 +445,13 @@ io.on('connection',function(socket){
     });
 
     chatClient.act('role:notification,playerId:'+playerId+',cmd:send',{msg: msg}, function(err, response) {
+      if(err){
+        return console.error(err);
+      }else{
       console.log(response.response);
+      socket.emit('connection', {status:true});
+
+    }
     });
     // Redis Connection Here
   });
