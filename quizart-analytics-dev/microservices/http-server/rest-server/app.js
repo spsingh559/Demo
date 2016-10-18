@@ -301,16 +301,15 @@ app.post('/createLobby', function(req, res) {
 app.get('/notifications',function(req,res){
   // console.log('inside notification server');
   // res.send('Hello');
-  mesh.act('role:notification,cmd:getAll,fatal$: false',function(err,res){
+  mesh.act('role:notification,cmd:getAllNotification',function(err,response){
     if(err){
       console.log('error in Connecting notiifcation Microservice');
-      res.send(err);
+      // res.send(err);
     }else{
       console.log("notification Microservice connected");
-      console.log(res.msg);
-      res.send('connected');
+      console.log(response);
     }
-  })
+  });
 });
 
 app.post('/api/check',function(req,res){

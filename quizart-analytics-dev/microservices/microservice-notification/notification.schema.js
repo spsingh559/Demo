@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var NotificationSchema = new Schema({
-	_id: {type:String},
 	NotificationId:{type:String},
 	NotificationOwnerId:{type:String},
 	NotificationTargetId:{type:String},
@@ -11,8 +10,9 @@ var NotificationSchema = new Schema({
 	NotificationSubTitle:{type:String},
 	DateAndTime: {type:Date},
 	NotificationStatus:{type:Boolean},
-	notificationStatus:{type:Boolean},
+	notificationStatustext:{type:String},
 	notificationResultStatus:{type:Boolean}
+	
 });
 
-exports = module.exports = mongoose.model('NotificationSchema', NotificationSchema);
+module.exports = mongoose.model('NotificationSchema', NotificationSchema);
