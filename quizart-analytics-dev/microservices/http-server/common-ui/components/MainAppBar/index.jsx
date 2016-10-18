@@ -32,13 +32,15 @@ import LinkIcon from 'material-ui/svg-icons/content/link';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import MainComponent from './MainComponent.jsx';
 import Snackbar from 'material-ui/Snackbar';
+import restUrl from '../../restUrl';
+
 var username ;
 export default class MainAppBar extends React.Component {
   constructor() {
     super();
     username = (JSON.parse(base64.decode(localStorage.token.split('.')[1])).sub);
     this.state =
-    {dropDown: false, open: false, openDialogue:false,appbarContainer: {
+    {dropDown: false, open: false, openDialogue:false, dialogueMessage:'', appbarContainer: {
     	position: 'fixed',
     	width: '100%',
     	zIndex: 1,
@@ -128,16 +130,28 @@ export default class MainAppBar extends React.Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
+
     this.context.socket.on('connection', (msg) => {
       // console.log('Queued');
-      this.setState({openDialogue: msg.status});
+      this.setState({openDialogue: msg.status,dialogueMessage:msg.message});
     });
   }
 
-  // componentDidMount(){
+  componentWillMount(){
 
-  // };
+    console.log("executed");
+    $.ajax({
+      url:restUrl+'/notifications',
+      type:'GET',
+      success: function(data){
+        console.log('notifications success');
+      }.bind(this),
+      error:function(err){
+        console.log('notifications error');
+      }.bind(this)
+    });
+   };
 
   render() {
     const style = {
@@ -161,7 +175,7 @@ export default class MainAppBar extends React.Component {
               </span>
               <Snackbar
                   open={this.state.openDialogue}
-                  message="New Notification"
+                  message={this.state.dialogueMessage}
                   autoHideDuration={10000}
                   // onRequestClose={this.handleRequestClose}
                 />

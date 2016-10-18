@@ -297,6 +297,22 @@ app.post('/createLobby', function(req, res) {
 
 // ----------------------------------------------/
 
+//---------------Notification -------------------/
+app.get('/notifications',function(req,res){
+  // console.log('inside notification server');
+  // res.send('Hello');
+  mesh.act('role:notification,cmd:getAll,fatal$: false',function(err,res){
+    if(err){
+      console.log('error in Connecting notiifcation Microservice');
+      res.send(err);
+    }else{
+      console.log("notification Microservice connected");
+      console.log(res.msg);
+      res.send('connected');
+    }
+  })
+});
+
 app.post('/api/check',function(req,res){
  console.log('-------------- abc from express floow---------------');
  console.log(req.body.incre+'   0----------------------');
@@ -360,7 +376,7 @@ var middleWareCount =0;
 io.on('connection',function(socket){
   // TODO: Create Middleware Plugin for user.
   // console.log("socket Connected");
-   socket.emit('connection', {status:true});
+   // socket.emit('connection', {status:true});
 
 
 
@@ -419,7 +435,8 @@ io.on('connection',function(socket){
   // Create Lobby Socket Connections ---------------------------------
   socket.on('lobbyPlayerAdd', function(pdata) {
     console.log('-----------Added ' + pdata.data.id + '------------');
-    var playerId=1002;
+    
+    var playerId=1003;
     const chatClient = seneca();
     // var msg={msgs: 'Hello'};
     var msg={
@@ -445,13 +462,9 @@ io.on('connection',function(socket){
     });
 
     chatClient.act('role:notification,playerId:'+playerId+',cmd:send',{msg: msg}, function(err, response) {
-      if(err){
-        return console.error(err);
-      }else{
-      console.log(response.response);
-      socket.emit('connection', {status:true});
+      console.log(response);
+      socket.emit('connection', {status:true,message:'Notification sent'});
 
-    }
     });
     // Redis Connection Here
   });

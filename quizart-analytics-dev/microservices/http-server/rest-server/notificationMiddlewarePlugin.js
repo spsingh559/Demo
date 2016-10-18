@@ -1,24 +1,17 @@
 exports = module.exports = function(playerId,socket) {
   
-var self = this;
+  const seneca = require('seneca');
+  const notificationServer = seneca();
+  
+  var self = this;
+  self.playerId = playerId;
+  self.socket = socket;
 
-self.playerId = playerId;
-self.socket = socket;
-
-
-console.log(playerId+' playerId');
-console.log(socket+' socket');
-
-const seneca = require('seneca');
-
-const notificationServer = seneca();
 
 notificationServer.add('role:notification,playerId:'+playerId+',cmd:send',function(msg, callback) {
    console.log(msg.msg);
-  // console.log('notification message'+notificationdata.msg)
   console.log("Inside Subscriber");
-  // socket.emit('NoticeSent','success');
-
+  socket.emit('connection', {status:true,message:'Notification received'});
   return callback(null,{response: 'notification sent  to player'+playerId});
 });
 

@@ -62,6 +62,16 @@ services:
       - microservice-mesh-base
     environment:
       MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
+  microservice-notification:
+    container_name: microservice-notification
+    build: microservices/microservice-notification
+    image: boilerplate/notification
+    network_mode: host
+    restart: always
+    depends_on:
+      - microservice-mesh-base
+    environment:
+      MONGO_URL: 'mongodb://localhost:27017/quizRT4'
   microservice-jwt:
     container_name: microservice-jwt
     build: microservices/microservice-jwt
