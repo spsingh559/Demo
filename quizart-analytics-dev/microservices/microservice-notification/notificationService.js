@@ -1,11 +1,11 @@
 var seneca = require('seneca')();
 
 var notificationMicroservicePlugin = require('.');
- var env = process.env.NODE_ENV || 'dev';
+ // var env = process.env.NODE_ENV || 'dev';
  
   seneca
   .use(notificationMicroservicePlugin, {
-  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/quizRT4'+env
+  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/quizRT4'
 	})
   .use('mesh', { auto:true, pin:'role:notification,cmd:*'})
 

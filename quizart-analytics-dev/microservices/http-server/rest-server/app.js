@@ -308,6 +308,7 @@ app.get('/notifications',function(req,res){
     }else{
       console.log("notification Microservice connected");
       console.log(response);
+      res.send(response);
     }
   });
 });

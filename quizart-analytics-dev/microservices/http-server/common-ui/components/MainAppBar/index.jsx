@@ -138,21 +138,7 @@ export default class MainAppBar extends React.Component {
     });
   }
 
-  componentWillMount(){
-
-    console.log("executed");
-    $.ajax({
-      url:restUrl+'/notifications',
-      type:'GET',
-      success: function(data){
-        console.log('notifications success');
-      }.bind(this),
-      error:function(err){
-        console.log('notifications error');
-      }.bind(this)
-    });
-   };
-
+  
   render() {
     const style = {
       margin: 12,
