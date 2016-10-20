@@ -27,6 +27,7 @@ import ProfilePage from './views/ProfilePage';
 import TournamentPage from './views/TournamentPage';
 import EndGameLeaderboard from './views/EndGameLeaderBoard';
 import CreateLobby from './views/createLobby';
+import Lobby from './views/lobby';
 
 const verifyLogin = function(nextState, replace) {
   if(!localStorage.token) {
@@ -69,6 +70,7 @@ ReactDOM.render(
       <Route path="my-account/change-password" component={ChangePasswordView} onEnter={verifyLogin} />
       <Route path="/create" component={CreateTournament} onEnter={verifyLogin}/>
       <Route path="/createLobby" component={CreateLobby}/>
+      <Route path="/lobby/:lid" component={Lobby}/>
       <Route path="/tournament" component={TournamentsContainer} onEnter={verifyLogin}/>
       <Route name="tournamentpage" path="/tournamentpage/:id" component={TournamentPage} />
       <Route name="endgame" path="/endgame" component={EndGameLeaderboard} />

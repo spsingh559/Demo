@@ -52,10 +52,10 @@ services:
       - microservice-mesh-base
     environment:
       MONGO_URL: 'mongodb://localhost:27017/boilerplate-production'
-  microservice-createLobby:
-    container_name: microservice-createLobby
-    build: microservices/microservice-createLobby
-    image: boilerplate/create-lobby
+  microservice-lobby:
+    container_name: microservice-lobby
+    build: microservices/microservice-lobby
+    image: boilerplate/lobby-operations
     network_mode: host
     restart: always
     depends_on:
@@ -71,7 +71,7 @@ services:
     depends_on:
       - microservice-mesh-base
     environment:
-      MONGO_URL: 'mongodb://localhost:27017/quizRT4'
+      MONGO_URL: 'mongodb://localhost:27017/notificationDB'
   microservice-jwt:
     container_name: microservice-jwt
     build: microservices/microservice-jwt

@@ -28,6 +28,7 @@ export default class EachNotificationComponent extends React.Component{
     // }
  
     handleAccept=()=>{
+      // alert('click');
       var obj={
        notificationStatustext:"You have Accepted",
        NotificationStatus:false,
@@ -54,14 +55,11 @@ export default class EachNotificationComponent extends React.Component{
     render()  {   
 
       var style,textColor;
-          if(this.props.notificationResultStatus=="NoStatus"){
-            style='white';
-            textColor='black';
-          }else if(this.props.notificationResultStatus==true){
+             if(this.props.notificationResultStatus==true){
             style='#f5f5f0';
             textColor='green';
           }else if(this.props.notificationResultStatus==false){
-            style='#f5f5f0';
+            style='white';
             textColor='orange';
           }
 
@@ -90,15 +88,15 @@ export default class EachNotificationComponent extends React.Component{
       // if(this.state.isNotificationBtnActive==false){
       //  AcceptRejectBtn=<Chip>{this.state.notificationStatustext}</Chip>
       // }
-      var ownerName=this.props.NotificationOwnerId==1001?'Ravi':
-          this.props.NotificationOwnerId==1002?'Jeevan':null;
+      // var ownerName=this.props.NotificationOwnerId==1001?'Ravi':
+      //     this.props.NotificationOwnerId==1002?'Jeevan':null;
 
       return(
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <Card style={{marginTop:'10px',backgroundColor:style}}
         key={this.props.id}>
           <CardHeader
-            title={ownerName +" "+ this.props.NotificationSubTitle}
+            title={this.props.NotificationOwnerId +" "+ this.props.NotificationSubTitle}
             titleStyle={{fontSize:'18px',color:'black'}}
             subtitle= {this.props.DateAndTime}
             subtitleStyle={{color:'black'}}

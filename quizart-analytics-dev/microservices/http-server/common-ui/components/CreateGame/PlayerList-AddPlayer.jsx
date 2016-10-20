@@ -18,8 +18,11 @@ import Paper from 'material-ui/Paper';
 import AddPlayerList from './PlayerList-AddPlayerList.jsx';
 
 const friends = [
-    'Shyam','Sukeerthana','Yazhini','Jeevan','Rohan','Souparnika','Sachin','John','Jacob', 'Vishal', 'Albert', 'Vivek', 'Keerthana', 'Jack',
-    'Tom', 'Ullas', 'Bhavana', 'Kavya', 'Anish', 'Vaishak', 'Jackson', 'Spoorthy', 'Sasi', 'Subin', 'Soman'];
+    'shyam@gmail.com','Sukeerthana@gmail.com','yazhini@gmail.com','Jeevan@gmail.com','Rohan@gmail.com',
+    'Souparnika@gmail.com','Sachin@gmail.com','John@gmail.com','Jacob@gmail.com', 'Vishal@gmail.com',
+    'Albert@gmail.com', 'Vivek@gmail.com', 'Keerthana@gmail.com', 'Jack@gmail.com','Tom@gmail.com',
+    'Ullas@gmail.com', 'Bhavana@gmail.com', 'Kavya@gmail.com', 'Anish@gmail.com','Vaishak@gmail.com',
+    'Jackson@gmail.com', 'Spoorthy@gmail.com', 'Sasi@gmail.com', 'Subin@gmail.com', 'Soman@gmail.com'];
 
 var AddPlayer = React.createClass({
     getInitialState: function() {

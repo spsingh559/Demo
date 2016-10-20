@@ -19,11 +19,22 @@ export default class MainComponent extends React.Component{
 	};
 
 	handleAccept=(obj,id)=>{
+    console.log('id is '+ id);
 		var currentData=this.state.data;
+    console.log("Request object is");
 		console.log(obj);
-		currentData[id].NotificationStatus=obj.NotificationStatus;
-		currentData[id].notificationStatustext=obj.notificationStatustext;
-		currentData[id].notificationResultStatus=obj.notificationResultStatus;
+    console.log('currentData object is');
+    console.log(currentData);
+    var indexNumber;
+    currentData.forEach(function(data,index){
+      if(data._id==id){
+          indexNumber=index;
+      }
+    });
+console.log('index is '+ indexNumber);
+		currentData[indexNumber].NotificationStatus=obj.NotificationStatus;
+		currentData[indexNumber].notificationStatustext=obj.notificationStatustext;
+		currentData[indexNumber].notificationResultStatus=obj.notificationResultStatus;
 		this.setState({
 			data:currentData 
 		});
@@ -41,14 +52,15 @@ export default class MainComponent extends React.Component{
 	};
 
 	getNotification=()=>{
-		var targetId=2000; 
+		// var targetId=2000; 
 		console.log("executed");
     $.ajax({
       url:restUrl+'/notifications',
       type:'GET',
       success: function(data){
          console.log('notifications success');
-        // console.log(data.msg);
+
+         console.log(data.msg);
         this.setState({
       data:data.msg
     });

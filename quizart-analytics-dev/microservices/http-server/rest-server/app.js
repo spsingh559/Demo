@@ -30,6 +30,7 @@ var formidable = require('express-formidable');
 
 var chatMiddlewarePlugin  = require('./chatmiddlewareplugin');
 var notificationMiddlewarePlugin=require('./notificationMiddlewarePlugin');
+var lobbyMiddlewarePlugin=require('./lobbyMiddlewarePlugin');
 
 context.mesh = mesh;
 var twitterStream = require('./api/timeline/TwitterStream');
@@ -271,13 +272,17 @@ app.get('/api/v1/analytics/user/filter',function(req,res) {
    console.log('send');
  });
 
-// ------------------------------ CREATE LOBBY---/
+// ---------------------------------------------------/
+// ------------------------------ LOBBY---------------/
+// ---------------------------------------------------/
 
-app.post('/createLobby', function(req, res) {
-  console.log('----------------CREATE LOBBY----------------'); 
+app.get('/createLobby/:uname', function(req, res) {
+
+  console.log('----------------CREATE LOBBY---------------- ');
+  var adminPlayer = req.params.uname;
   var respnse;
 
-  mesh.act('role:lobby,action:create',function(err,result){
+  mesh.act('role:lobby,action:createLobby', {data: adminPlayer}, function(err,result) {
     if(err)
     {
       console.log('----Error in Connecting with Microservice----');
@@ -291,27 +296,61 @@ app.post('/createLobby', function(req, res) {
       respnse = result.gameId;
       console.log('--------------------------------------------------');
       res.send(respnse);
+      // res.redirect('http://'+redirectHost+':'+redirectPort+'/#/lobby?_id:'+respnse);
     }
   });
 });
 
+app.get('/getLobbyPlayers/:lobbyid', function(req, res) {
+  var lobbyid = req.params.lobbyid;
+  var respnse;
+  console.log('In Server to fetch all Players---------------------');
+  console.log(lobbyid);
+  console.log('---------------------------------------------------');
+
+  mesh.act('role:lobby,action:getPlayers', {data: lobbyid}, function(err,result) {
+    if(err)
+    {
+      console.log('----Error in Connecting with Microservice----');
+      console.log(err);
+      res.send('error');
+    }
+    else
+    {
+      console.log('-----Established connection with Microservice-----');
+      console.log(result.players);
+      respnse = result.players;
+      console.log('--------------------------------------------------');
+      res.send(respnse);
+    }
+  });
+});
+
+app.get('/getLobbyTopic/:lobbyid', function(req, res) {
+  var lobbyid = req.params.lobbyid;
+  var respnse;
+  console.log('In Server to fetch Topic---------------------------');
+  console.log(lobbyid);
+  console.log('---------------------------------------------------');
+
+  mesh.act('role:lobby,action:getLobbyTopic', {data: lobbyid}, function(err,result) {
+    if(err)
+    {
+      console.log('----Error in Connecting with Microservice----');
+      console.log(err);
+      res.send('error');
+    }
+    else
+    {
+      console.log('-----Established connection with Microservice-----');
+      console.log(result.topic);
+      respnse = result.topic;
+      console.log('--------------------------------------------------');
+      res.send(respnse);
+    }
+  });
+});
 // ----------------------------------------------/
-
-//---------------Notification -------------------/
-app.get('/notifications',function(req,res){
-  // console.log('inside notification server');
-  // res.send('Hello');
-  mesh.act('role:notification,cmd:getAllNotification',function(err,response){
-    if(err){
-      console.log('error in Connecting notiifcation Microservice');
-      // res.send(err);
-    }else{
-      console.log("notification Microservice connected");
-      console.log(response);
-      res.send(response);
-    }
-  });
-});
 
 app.post('/api/check',function(req,res){
  console.log('-------------- abc from express floow---------------');
@@ -340,6 +379,23 @@ app.post('/api/check',function(req,res){
    }
  })
 });
+
+//---------------Notification--------------------
+app.get('/notifications',function(req,res){
+  // console.log('inside notification server');
+  // res.send('Hello');
+  mesh.act('role:notification,cmd:getAllNotification',function(err,response){
+    if(err){
+      console.log('error in Connecting notiifcation Microservice');
+      // res.send(err);
+    }else{
+      console.log("notification Microservice connected");
+       console.log(response);
+      res.send(response);
+    }
+  });
+});
+
 
 
 app.use(function(req, res) {
@@ -399,7 +455,7 @@ io.on('connection',function(socket){
 
     });
   });
-  var notificationPlayerId=1002;
+  var notificationPlayerId=1003;
   // var msg='This is notification from'+notificationPlayerId;
   var notificationMiddleware = new notificationMiddlewarePlugin(notificationPlayerId,socket); 
 
@@ -432,48 +488,124 @@ io.on('connection',function(socket){
     }
   }
 
+  //------------------------------------------------------------------
   // Create Lobby Socket Connections ---------------------------------
+  //------------------------------------------------------------------
+
+  // const seneca = require('seneca');
+  const lobbyClient = seneca(); // // var msg={msgs: 'Hello'};
+  
+  socket.on('subscribeLobby',function(ldata)
+  {
+    var lobbyId = ldata.data.lobbyId;
+   
+    console.log('--------------- Subscribing --------------------');
+    console.log(" LobbyId  is " + lobbyId);
+    var lobbyMiddleware = new lobbyMiddlewarePlugin(lobbyId,socket); 
+    // const seneca = require('seneca');
+   
+    // const lobbyClient = seneca(); // // var msg={msgs: 'Hello'};
+
+    lobbyClient.use('redis-transport');
+
+    lobbyClient.client({
+      type: 'redis',
+      pin: 'role:lobbySub,lobbyId:'+lobbyId+',cmd:*',
+      host: '172.23.238.251'
+    });
+  });
+
   socket.on('lobbyPlayerAdd', function(pdata) {
-    console.log('-----------Added ' + pdata.data.id + '------------');
-    
-    var playerId=1003;
-    const chatClient = seneca();
+
+    // const seneca = require('seneca');
+    // var playerId=1002;
+    console.log('-----------Added ' + pdata.data.player + '------------');
+    var newPlayerDetails = pdata.data;
+
+    //publishing notification
+    var playerId=1002;
+    // const chatClient = seneca();
     // var msg={msgs: 'Hello'};
-    var msg={
-      id: 0,
-      NotificationId: 1,
-      NotificationOwnerId: 1002,
-      NotificationTargetId: 2000,
-      // "NotificationOwnerPic": "./image/notificationOwnerPic.jpg",
-      NotificationTitle: "Friend Request",
-      NotificationSubTitle: "has send Friend request",
-      DateAndTime: "9/16/2016T10:32:40",
-      isNotificationActive: "true",
-      NotificationStatus: false,
-      notificationStatustext: "You have Accepted",
-      notificationResultStatus: true
-    };
+    // var msg={
+    //   id: 0,
+    //   NotificationId: 1,
+    //   NotificationOwnerId: 1002,
+    //   NotificationTargetId: 2000,
+    //   // "NotificationOwnerPic": "./image/notificationOwnerPic.jpg",
+    //   NotificationTitle: "Friend Request",
+    //   NotificationSubTitle: "has send Friend request",
+    //   DateAndTime: "9/16/2016T10:32:40",
+    //   isNotificationActive: "true",
+    //   NotificationStatus: false,
+    //   notificationStatustext: "You have Accepted",
+    //   notificationResultStatus: true
+    // };
     // console.log(notificationData);
-    chatClient.use('redis-transport');
-    chatClient.client({
+    lobbyClient.use('redis-transport');
+    lobbyClient.client({
       type: 'redis',
       pin: 'role:notification,playerId:'+playerId+',cmd:*',
       host: '172.23.238.251'
     });
 
-    chatClient.act('role:notification,playerId:'+playerId+',cmd:send',{msg: msg}, function(err, response) {
+    lobbyClient.act('role:notification,playerId:'+playerId+',cmd:send', function(err, response) {
       console.log(response);
       socket.emit('connection', {status:true,message:'Notification sent'});
 
     });
     // Redis Connection Here
+    
+    mesh.act('role:lobby,action:addPlayer', {data: newPlayerDetails}, function(err,result){
+      if(err)
+      {
+        console.log('----Error in Connecting with Microservice----');
+        console.log(err);
+        // res.send('error');
+        console.log('--------------------------------------------------');
+      }
+      else
+      {
+        console.log('-----Established connection with Microservice-----');
+        console.log(result.response);
+        // res.send(result.gameId);
+        console.log('--------------------------------------------------');
+      }
+    });
+
+    lobbyClient.act('role:lobbySub,lobbyId:'+pdata.data.lobby+',cmd:getPlayers', function(err, response) {
+      console.log(response.response);
+    });
   });
 
   socket.on('lobbyPlayerDelete', function(pdata) {
-    console.log('-----------Removed ' + pdata.name + '------------');
+    console.log('-----------Removing ' + pdata.data.player + '------------');
+    console.log(pdata.data);
+    var removePlayerDetails = pdata.data;
+
+    mesh.act('role:lobby,action:remPlayer', {data: removePlayerDetails}, function(err,result){
+      if(err)
+      {
+        console.log('----Error in Connecting with Microservice----');
+        console.log(err);
+        // res.send('error');
+        console.log('--------------------------------------------------');
+      }
+      else
+      {
+        console.log('-----Established connection with Microservice-----');
+        console.log(result.response);
+        // res.send(result.gameId);
+        console.log('--------------------------------------------------');
+      }
+    });
+
+    lobbyClient.act('role:lobbySub,lobbyId:'+pdata.data.lobby+',cmd:getPlayers', function(err, response) {
+      console.log(response.response);
+    });
   });
 
   // -----------------------------------------------------------------
+  //------------------------------------------------------------------
 })
 
 exports = module.exports = server;

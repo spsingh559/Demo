@@ -221,12 +221,11 @@ var hardwareIcon;
   var rows=[];
   var data=this.props.notificationData.map(function(data){
     return(
-      <div key={data.id}>
+      <div key={data._id}>
       <EachNotificationComponent 
-      socket={this.props.socket}
       AcceptStatus={this.handleAcceptRequest}
       CountReduce={this.handleCount}
-      id={data.id}
+      id={data._id}
       NotificationId={data.NotificationId}
       notificationResultStatus={data.notificationResultStatus}
       NotificationOwnerId={data.NotificationOwnerId}
@@ -234,7 +233,6 @@ var hardwareIcon;
       NotificationTitle={data.NotificationTitle}
       NotificationSubTitle={data.NotificationSubTitle}
       DateAndTime={data.DateAndTime}
-      isNotificationActive={data.isNotificationActive}
       NotificationStatus={data.NotificationStatus}
       notificationStatustext={data.notificationStatustext}
       />

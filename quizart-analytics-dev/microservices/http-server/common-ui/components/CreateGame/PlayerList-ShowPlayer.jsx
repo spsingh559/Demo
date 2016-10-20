@@ -9,6 +9,9 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import base64 from 'base-64';
+
+var username = (JSON.parse(base64.decode(localStorage.token.split('.')[1])).sub);
 
 var ShowPlayer = React.createClass({
     delPlayer: function() {
@@ -64,9 +67,18 @@ var ShowPlayer = React.createClass({
                 style={{marginBottom: '5px'}}
             /></div>
         ];
-        if (this.props.players.name === 'this user')
+
+        var displayName;
+        
+        if (this.props.players.name === username)
         {
-            this.props.players.name = 'You';
+            displayName = 'You';
+        }
+        else
+        {
+            var endPos = this.props.players.name.indexOf('@'); 
+            displayName = this.props.players.name.substr(0, endPos);
+            displayName = displayName.substr(0,1).toUpperCase() + displayName.substr(1).toLowerCase();
         }
 
         //  Manage modal width according to devices
@@ -87,10 +99,10 @@ var ShowPlayer = React.createClass({
                 return (
                     <ListItem
                         disabled={true}
-                        leftAvatar={<Avatar src="img/lobby/user.png" style={{top: '6px'}} />}
+                        leftAvatar={<Avatar src="./../img/Lobby/user.png" style={{top: '6px'}} />}
                         primaryText={
                             <span style={{color: 'black',fontWeight: 'bold'}}>
-                                {this.props.players.name}
+                                {displayName}
                             </span>
                         }
                         secondaryText={this.props.players.status}
@@ -104,14 +116,14 @@ var ShowPlayer = React.createClass({
                     <div>
                         <ListItem
                             disabled={false}
-                            leftAvatar={<Avatar src="./../img/lobby/user.png" style={{top: '6px'}} />}
-                            primaryText={this.props.players.name}
+                            leftAvatar={<Avatar src="./../img/Lobby/user.png" style={{top: '6px'}} />}
+                            primaryText={displayName}
                             secondaryText={this.props.players.status}
                             innerDivStyle={{paddingBottom: '7px', paddingTop: '10px'}}
                             onTouchTap={this.handleOpen}
                         />
                         <Dialog
-                            title={<h4 style={{textAlign: 'center'}}>{this.props.players.name}</h4>}
+                            title={<h4 style={{textAlign: 'center'}}>{displayName}</h4>}
                             actions={actions}
                             modal={false}
                             open={this.state.open}
@@ -120,7 +132,7 @@ var ShowPlayer = React.createClass({
                             bodyStyle={{textAlign: 'center', paddingBottom: '5px'}}
                             contentStyle={{width: '50%'}}
                         >
-                            <Avatar size={60} src="./../Images/user.png" style={{top: '3px'}} />
+                            <Avatar size={60} src="./../img/Lobby/user.png" style={{top: '3px'}} />
                             <br/>
                             <span style={{paddingTop: '5px', color: 'grey', fontStyle: 'italic'}}>{this.props.players.status}</span>
                         </Dialog>
@@ -136,11 +148,11 @@ var ShowPlayer = React.createClass({
                     <ListItem
                         disabled={false}
                         leftAvatar={
-                            <Avatar src="./../img/lobby/user.png" style={{top: '6px'}} />
+                            <Avatar src="./../img/Lobby/user.png" style={{top: '6px'}} />
                         }
                         primaryText={
                             <span style={{color: 'lightgrey',fontStyle: 'italic'}}>
-                                {this.props.players.name}
+                                {displayName}
                             </span>
                         }
                         secondaryText={this.props.players.status}
@@ -148,7 +160,7 @@ var ShowPlayer = React.createClass({
                         onTouchTap={this.handleOpen}
                     />
                     <Dialog
-                        title={<h4 style={{textAlign: 'center'}}>{this.props.players.name}</h4>}
+                        title={<h4 style={{textAlign: 'center'}}>{displayName}</h4>}
                         actions={actions}
                         modal={false}
                         open={this.state.open}
@@ -157,7 +169,7 @@ var ShowPlayer = React.createClass({
                         bodyStyle={{textAlign: 'center', paddingBottom: '5px'}}
                         contentStyle={{width: '50%'}}
                     >
-                        <Avatar size={60} src="./../img/lobby/user.png" style={{top: '3px'}} />
+                        <Avatar size={60} src="./../img/Lobby/user.png" style={{top: '3px'}} />
                         <br/>
                         <span style={{paddingTop: '5px', color: 'grey', fontStyle: 'italic'}}>{this.props.players.status}</span>
                     </Dialog>
@@ -171,11 +183,11 @@ var ShowPlayer = React.createClass({
                     <ListItem
                         disabled={false}
                         leftAvatar={
-                            <Avatar src="./../img/lobby/user.png" style={{top: '6px'}} />
+                            <Avatar src="./../img/Lobby/user.png" style={{top: '6px'}} />
                         }
                         primaryText={
                             <span style={{color: 'lightgrey',fontStyle: 'italic'}}>
-                                {this.props.players.name}
+                                {displayName}
                             </span>
                         }
                         secondaryText={
@@ -187,7 +199,7 @@ var ShowPlayer = React.createClass({
                         onTouchTap={this.handleOpen}
                     />
                     <Dialog
-                        title={<h4 style={{textAlign: 'center'}}>{this.props.players.name}</h4>}
+                        title={<h4 style={{textAlign: 'center'}}>{displayName}</h4>}
                         actions={inactiveActions}
                         modal={false}
                         open={this.state.open}
@@ -196,7 +208,7 @@ var ShowPlayer = React.createClass({
                         bodyStyle={{textAlign: 'center', paddingBottom: '5px'}}
                         contentStyle={{width: '50%'}}
                     >
-                        <Avatar size={60} src="./../img/lobby/user.png" style={{top: '3px'}} />
+                        <Avatar size={60} src="./../img/Lobby/user.png" style={{top: '3px'}} />
                         <br/>
                         <span style={{paddingTop: '5px', color: 'grey', fontStyle: 'italic'}}>{this.props.players.status}</span>
                     </Dialog>

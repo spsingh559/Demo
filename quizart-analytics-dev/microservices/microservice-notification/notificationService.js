@@ -5,7 +5,7 @@ var notificationMicroservicePlugin = require('.');
  
   seneca
   .use(notificationMicroservicePlugin, {
-  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/quizRT4'
+  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/notificationDB'
 	})
   .use('mesh', { auto:true, pin:'role:notification,cmd:*'})
 

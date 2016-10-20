@@ -1,57 +1,54 @@
-import CreateGame from '../../components/CreateGame/Main.jsx';
 import MainAppBar from '../../components/MainAppBar';
 import React from 'react';
-import restUrl from '../../restUrl'
+import restUrl from '../../restUrl';
+import base64 from 'base-64';
 
+var gameId;
 
 export default class CreateGameApp extends React.Component {
   constructor() {
     super();
-    this.state={
-      loadPage: false
+  };
+
+  static get contextTypes() {
+    console.log('')
+    return {
+     router: React.PropTypes.object.isRequired,
+     socket:React.PropTypes.object.isRequired
     }
   };
 
   componentWillMount() {
-    console.log('Create Game Component Loaded');
-    // var data = {id: 11111};
+    var username = (JSON.parse(base64.decode(localStorage.token.split('.')[1])).sub);
+    var dataToPass={
+      uName :username
+    }
+    var me = this;
     $.ajax({
-      url: restUrl + '/createLobby',
-        dataType:'json',
-        type: 'POST',
-        // data: data,
+      url: restUrl + '/createLobby/' + username,
+        type: 'GET',
         success: function(data){
-          // console.log('Create game successful');
+          gameId=data;
+          console.log('Create game successful');
           console.log('Data from MS: ' + data);
-          this.setState({loadPage: true});
+          console.log('Redirect to /lobby2');
+          me.context.router.push('/lobby/'+data);
         }.bind(this),
         error:function(err){
           console.log(err);
-          console.log('Create Game error');
+          console.log('Create Game error2');
         }
     });
   };
 
   render() {
-    if(this.state.loadPage)
-    {
-      return (
-        <div>
-          <MainAppBar/>
-          <CreateGame />     
+    return (
+      <div>
+        <MainAppBar/>
+        <div style={{textAlign: 'center', paddingTop: '200px'}}>
+          Loading Lobby.. Please Wait!
         </div>
-      );
-    }
-    else
-    {
-      return (
-        <div>
-          <MainAppBar/>
-          <div style={{textAlign: 'center', paddingTop: '200px'}}>
-            Loading Lobby.. Please Wait!
-          </div>
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }

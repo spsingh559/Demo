@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
+
+
 var Schema = mongoose.Schema;
 
 var NotificationSchema = new Schema({
-	NotificationId:{type:String},
+	NotificationId:{type:Number},
 	NotificationOwnerId:{type:String},
 	NotificationTargetId:{type:String},
 	NotificationOwnerPic:{type:String},
@@ -15,4 +17,10 @@ var NotificationSchema = new Schema({
 	
 });
 
-module.exports = mongoose.model('NotificationSchema', NotificationSchema);
+module.exports = mongoose.model('notifications', NotificationSchema);
+
+// var mongoose = require('mongoose');
+
+// var userCounters = mongoose.model('userCounters', { userId: String, consLogin: Number, nOfWin: Number, nOfConsWin: Number, avgResTimeCrctCurrentGame: Number, nOfUniqTopicPlayed: Number, nOfGamePlayed: Number, nOfCrctResCurGame: Number, nOfWinForATopic: Number},'userCounters');
+
+// module.exports = userCounters;

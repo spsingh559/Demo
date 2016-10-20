@@ -9,7 +9,7 @@ exports = module.exports = function(playerId,socket) {
 
 
 notificationServer.add('role:notification,playerId:'+playerId+',cmd:send',function(msg, callback) {
-   console.log(msg.msg);
+   // console.log(msg.msg);
   console.log("Inside Subscriber");
   socket.emit('connection', {status:true,message:'Notification received'});
   return callback(null,{response: 'notification sent  to player'+playerId});
